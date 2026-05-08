@@ -15,14 +15,9 @@ Push naar `main` triggert de workflow in `.github/workflows/deploy.yml`, die de 
 
 ## Nog in te vullen
 
-Zoek in de bron op `[VUL IN` voor placeholders die met echte gegevens moeten worden vervangen:
-
-- Telefoonnummer
-- Adres / postcode / plaats
-- Werkgebied (regio)
-- KvK-nummer
-- Naam eigenaar
-- Project-foto's vervangen plaatsing in `index.html` `#projecten` sectie
+- Project-foto's vervangen in `index.html` onder `#projecten`
+- Optioneel: KvK-nummer toevoegen wanneer gewenst (footer + JSON-LD)
+- Google Business Profile claimen (via google.com/business) — los van de site, maar belangrijkste lokale SEO-boost
 
 ## Structuur
 
