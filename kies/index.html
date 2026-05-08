@@ -98,6 +98,31 @@
     background: var(--line);
     border: 1px solid var(--line);
   }
+  .grid + .grid { margin-top: 2.4rem; }
+  .reeks-head {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin: 2.4rem 0 1rem;
+    flex-wrap: wrap;
+  }
+  .reeks-head h2 {
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .reeks-head .reeks-meta {
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--olive);
+    font-weight: 500;
+  }
+  .reeks-head .reeks-meta::before {
+    content: "—";
+    margin-right: 0.5rem;
+  }
   .card {
     background: var(--cream);
     padding: 1.4rem 1.4rem 1.6rem;
@@ -183,9 +208,9 @@
 
 <header>
   <div>
-    <p class="eyebrow">Selectie · 10 ontwerpen</p>
-    <h1>Tien volledig verschillende richtingen voor <em>landhart.nl</em>.</h1>
-    <p class="lede">Klik op een ontwerp om de volledige pagina te bekijken. Alles is werkende code op echte content — geen mockups, geen placeholders. Laat me weten welke richting je het meest aanspreekt en ik werk die verder uit.</p>
+    <p class="eyebrow">Selectie · 20 ontwerpen</p>
+    <h1>Twintig volledig verschillende richtingen voor <em>landhart.nl</em>.</h1>
+    <p class="lede">Klik op een ontwerp om de volledige pagina te bekijken. Alles is werkende code op echte content — geen mockups, geen placeholders. De eerste reeks (01–10) was de basis-mix; de tweede reeks (11–20) is bewust experimenteler en creatiever. Laat me weten welke richting je het meest aanspreekt en ik werk die verder uit.</p>
   </div>
   <a class="meta-link" href="/">← Huidige live-versie</a>
 </header>
@@ -282,8 +307,105 @@
   </a>
 </div>
 
+<div class="reeks-head">
+  <h2>Tweede reeks — experimenteler</h2>
+  <span class="reeks-meta">11 t/m 20</span>
+</div>
+
+<div class="grid">
+  <a class="card" href="v11/">
+    <div>
+      <div class="card-num">№ 11</div>
+      <div class="card-name">Brutalist Web</div>
+    </div>
+    <p class="card-desc">Raw internet-brutalisme — dikke zwarte borders, system + JetBrains Mono mix, felle groene accent. Bewust "ontwerp-ruig".</p>
+    <div class="card-tags"><span class="tag">System UI</span><span class="tag">Brutalist</span><span class="tag">Bold</span></div>
+  </a>
+
+  <a class="card" href="v12/">
+    <div>
+      <div class="card-num">№ 12</div>
+      <div class="card-name">Risograph Duotone</div>
+    </div>
+    <p class="card-desc">Print-zine met slechts twee inkten (forest + coral) op cream papier. Halftone foto-treatment, mis-registratie, registration crosshairs.</p>
+    <div class="card-tags"><span class="tag">Bricolage</span><span class="tag">Riso</span><span class="tag">Print</span></div>
+  </a>
+
+  <a class="card" href="v13/">
+    <div>
+      <div class="card-num">№ 13</div>
+      <div class="card-name">Architectural Blueprint</div>
+    </div>
+    <p class="card-desc">Technische tekening aesthetic — blueprint-blauw, vijf inline SVG plan-view tuinen, dimensies, compass-rozen, title-blocks.</p>
+    <div class="card-tags"><span class="tag">JetBrains Mono</span><span class="tag">CAD</span><span class="tag">Technical</span></div>
+  </a>
+
+  <a class="card" href="v14/">
+    <div>
+      <div class="card-num">№ 14</div>
+      <div class="card-name">3D Glassmorphism</div>
+    </div>
+    <p class="card-desc">Gestapelde frosted glass panelen met echte depth, mouse-tilt parallax. Apple Vision Pro / iOS 16+ aesthetic.</p>
+    <div class="card-tags"><span class="tag">Inter</span><span class="tag">Glass</span><span class="tag">Depth</span></div>
+  </a>
+
+  <a class="card" href="v15/">
+    <div>
+      <div class="card-num">№ 15</div>
+      <div class="card-name">Memphis 80s Revival</div>
+    </div>
+    <p class="card-desc">Playful Sottsass-stijl — squiggles, polka dots, geometric shapes in turquoise/pink/peach/yellow. Hard offset shadows, rotaties.</p>
+    <div class="card-tags"><span class="tag">Bricolage</span><span class="tag">Memphis</span><span class="tag">Playful</span></div>
+  </a>
+
+  <a class="card" href="v16/">
+    <div>
+      <div class="card-num">№ 16</div>
+      <div class="card-name">Newspaper Broadsheet</div>
+    </div>
+    <p class="card-desc">"De Landhart Tijdingen" — blackletter masthead, 6-koloms tekst met hairline rules, drop caps, Romeinse paginanrs, sepia foto's.</p>
+    <div class="card-tags"><span class="tag">Old Standard</span><span class="tag">Broadsheet</span><span class="tag">Editorial</span></div>
+  </a>
+
+  <a class="card" href="v17/">
+    <div>
+      <div class="card-num">№ 17</div>
+      <div class="card-name">Organic Liquid</div>
+    </div>
+    <p class="card-desc">Geen rechte hoeken — alles morphende blob shapes met variërende border-radius animaties. SVG wave-dividers, fluid sections.</p>
+    <div class="card-tags"><span class="tag">Outfit</span><span class="tag">Blob</span><span class="tag">Fluid</span></div>
+  </a>
+
+  <a class="card" href="v18/">
+    <div>
+      <div class="card-num">№ 18</div>
+      <div class="card-name">Monospace IDE</div>
+    </div>
+    <p class="card-desc">VS Code-style window chrome, file-tabs, line numbers, syntax-coloring van content (keys, strings, functions). Volledig JetBrains Mono.</p>
+    <div class="card-tags"><span class="tag">JetBrains Mono</span><span class="tag">IDE</span><span class="tag">Syntax</span></div>
+  </a>
+
+  <a class="card" href="v19/">
+    <div>
+      <div class="card-num">№ 19</div>
+      <div class="card-name">Y2K Retro Tech</div>
+    </div>
+    <p class="card-desc">Aqua window mockup, glossy bubble buttons, iridescent rotating borders, chrome bevels, Orbitron display. 2000s nostalgia.</p>
+    <div class="card-tags"><span class="tag">Orbitron</span><span class="tag">Y2K</span><span class="tag">Aqua</span></div>
+  </a>
+
+  <a class="card" href="v20/">
+    <div>
+      <div class="card-num">№ 20</div>
+      <div class="card-name">Vertical Scroll Story</div>
+    </div>
+    <p class="card-desc">Elke sectie 100vh — narrative scrolling als een longread feature. Tone-shifting masthead, chapter indicators, full-bleed photos.</p>
+    <div class="card-tags"><span class="tag">Newsreader</span><span class="tag">Narrative</span><span class="tag">Scroll</span></div>
+  </a>
+</div>
+
 <footer>
-  <p>10 designs · alle op echte content (Hessenweg 184, 06 33 01 20 35, info@landhart.nl)</p>
+  <p>20 designs · alle op echte content (Hessenweg 184, 06 33 01 20 35, info@landhart.nl)</p>
   <p>Vragen? <a href="mailto:we.blaauwendraad@gmail.com">we.blaauwendraad@gmail.com</a></p>
 </footer>
 
