@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Landhart — Kies een ontwerp</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1A2417">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%231A2417%22/><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%23B8945F%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A2417;
+    --moss: #2F4A33;
+    --olive: #5A7150;
+    --cream: #F4EEE0;
+    --paper: #ECE5D2;
+    --gold: #B8945F;
+    --line: rgba(26,36,23,0.13);
+    --line-strong: rgba(26,36,23,0.4);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Inter Tight", system-ui, -apple-system, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    font-variant-numeric: tabular-nums;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 99;
+    opacity: 0.035; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='3' stitchTiles='stitch'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>");
+    background-size: 240px 240px;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: clamp(2rem, 6vw, 5rem) clamp(1.2rem, 4vw, 2.4rem); }
+
+  header {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2rem;
+    margin-bottom: 2.4rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1.5rem;
+    align-items: end;
+  }
+  .eyebrow {
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--olive);
+    font-weight: 500;
+    margin-bottom: 0.7rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+  .eyebrow::before {
+    content: ""; display: inline-block; width: 24px; height: 1px; background: var(--olive);
+  }
+  h1 {
+    font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    max-width: 22ch;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 500;
+  }
+  .lede {
+    grid-column: 1 / 2;
+    font-size: 0.95rem;
+    color: color-mix(in oklab, var(--ink) 75%, transparent);
+    max-width: 60ch;
+    margin-top: 0.8rem;
+  }
+  .meta-link {
+    font-size: 0.86rem;
+    color: var(--olive);
+    border-bottom: 1px solid var(--olive);
+    padding-bottom: 0.18rem;
+    transition: color 0.25s, border-color 0.25s;
+    white-space: nowrap;
+  }
+  .meta-link:hover { color: var(--gold); border-color: var(--gold); }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .card {
+    background: var(--cream);
+    padding: 1.4rem 1.4rem 1.6rem;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 0.8rem;
+    min-height: 220px;
+    transition: background 0.25s, transform 0.25s;
+    position: relative;
+  }
+  .card:hover { background: var(--paper); }
+  .card::after {
+    content: "→";
+    position: absolute;
+    bottom: 1.4rem; right: 1.4rem;
+    color: var(--olive);
+    font-size: 1.1rem;
+    transition: transform 0.3s, color 0.25s;
+  }
+  .card:hover::after { transform: translateX(4px); color: var(--gold); }
+
+  .card-num {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+  }
+  .card-name {
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+  .card-desc {
+    font-size: 0.84rem;
+    color: color-mix(in oklab, var(--ink) 68%, transparent);
+    line-height: 1.5;
+    max-width: 36ch;
+  }
+  .card-tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-top: 0.3rem;
+  }
+  .tag {
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--olive);
+    border: 1px solid var(--line-strong);
+    padding: 0.22rem 0.55rem;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+
+  footer {
+    margin-top: 2.4rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.82rem;
+    color: color-mix(in oklab, var(--ink) 60%, transparent);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+  footer a {
+    border-bottom: 1px solid var(--line-strong);
+    transition: border-color 0.25s;
+  }
+  footer a:hover { border-color: var(--gold); color: var(--gold); }
+
+  @media (max-width: 720px) {
+    header { grid-template-columns: 1fr; }
+    .meta-link { justify-self: start; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <p class="eyebrow">Selectie · 10 ontwerpen</p>
+    <h1>Tien volledig verschillende richtingen voor <em>landhart.nl</em>.</h1>
+    <p class="lede">Klik op een ontwerp om de volledige pagina te bekijken. Alles is werkende code op echte content — geen mockups, geen placeholders. Laat me weten welke richting je het meest aanspreekt en ik werk die verder uit.</p>
+  </div>
+  <a class="meta-link" href="/">← Huidige live-versie</a>
+</header>
+
+<div class="grid">
+  <a class="card" href="v1/">
+    <div>
+      <div class="card-num">№ 01</div>
+      <div class="card-name">Bento Grid Modern</div>
+    </div>
+    <p class="card-desc">Mozaïek van tegels in verschillende formaten — modern SaaS-stijl met groene warmte. Pointer-volgende glow, glassmorphic detail.</p>
+    <div class="card-tags"><span class="tag">Geist</span><span class="tag">Bento</span><span class="tag">Modern</span></div>
+  </a>
+
+  <a class="card" href="v2/">
+    <div>
+      <div class="card-num">№ 02</div>
+      <div class="card-name">Big Type Maximalist</div>
+    </div>
+    <p class="card-desc">Typografie domineert — gigantische headlines die rand-tot-rand lopen, electric green accent. Bricolage Grotesque variabele axes.</p>
+    <div class="card-tags"><span class="tag">Bricolage</span><span class="tag">Maximalist</span><span class="tag">Editorial</span></div>
+  </a>
+
+  <a class="card" href="v3/">
+    <div>
+      <div class="card-num">№ 03</div>
+      <div class="card-name">Soft Pastel Friendly</div>
+    </div>
+    <p class="card-desc">Sage/mint pastel met perzik-accent. Zachte gradients, pillowy cards, vriendelijk en approachable zonder kinderachtig te worden.</p>
+    <div class="card-tags"><span class="tag">Plus Jakarta</span><span class="tag">Pastel</span><span class="tag">Warm</span></div>
+  </a>
+
+  <a class="card" href="v4/">
+    <div>
+      <div class="card-num">№ 04</div>
+      <div class="card-name">Dark Forest Atmospheric</div>
+    </div>
+    <p class="card-desc">Volledig dark theme. Diepe forest achtergrond, glowing lime CTAs, atmosferische foto's met dark filter — premium estate-feel.</p>
+    <div class="card-tags"><span class="tag">Manrope</span><span class="tag">Dark</span><span class="tag">Premium</span></div>
+  </a>
+
+  <a class="card" href="v5/">
+    <div>
+      <div class="card-num">№ 05</div>
+      <div class="card-name">Geometric Poster</div>
+    </div>
+    <p class="card-desc">Modern poster-art aesthetic — flat-color blokken, grote SVG geometrische shapes, harde offset shadows. Geen gradients, alles strak.</p>
+    <div class="card-tags"><span class="tag">Geist</span><span class="tag">Poster</span><span class="tag">Flat</span></div>
+  </a>
+
+  <a class="card" href="v6/">
+    <div>
+      <div class="card-num">№ 06</div>
+      <div class="card-name">Magazine Editorial Modern</div>
+    </div>
+    <p class="card-desc">Multi-column magazine spread met moderne serif (Newsreader, niet Garamond). Drop caps, pull quotes, asymmetrische 12-col grid.</p>
+    <div class="card-tags"><span class="tag">Newsreader</span><span class="tag">Magazine</span><span class="tag">Drop Caps</span></div>
+  </a>
+
+  <a class="card" href="v7/">
+    <div>
+      <div class="card-num">№ 07</div>
+      <div class="card-name">Botanical Illustration</div>
+    </div>
+    <p class="card-desc">Hand-drawn SVG botanicals door de hele pagina (varens, takken, blaadjes). Watercolor-feel achtergronden, artisanal en organisch.</p>
+    <div class="card-tags"><span class="tag">Mulish</span><span class="tag">SVG</span><span class="tag">Artisanal</span></div>
+  </a>
+
+  <a class="card" href="v8/">
+    <div>
+      <div class="card-num">№ 08</div>
+      <div class="card-name">Swiss Grid Minimal</div>
+    </div>
+    <p class="card-desc">Strikte 12-koloms Swiss grid met 1px hairlines als enige scheiding. Geen gradients, geen shadows, geen rounded corners — pure geometrie.</p>
+    <div class="card-tags"><span class="tag">Inter Tight</span><span class="tag">Swiss</span><span class="tag">Minimal</span></div>
+  </a>
+
+  <a class="card" href="v9/">
+    <div>
+      <div class="card-num">№ 09</div>
+      <div class="card-name">Vibrant Marketing Gradient</div>
+    </div>
+    <p class="card-desc">Modern marketing-page energie. Animated gradient mesh hero (lime → emerald → teal), glowing CTAs, gradient bordered cards.</p>
+    <div class="card-tags"><span class="tag">Outfit</span><span class="tag">Gradient</span><span class="tag">Vibrant</span></div>
+  </a>
+
+  <a class="card" href="v10/">
+    <div>
+      <div class="card-num">№ 10</div>
+      <div class="card-name">Asymmetric Layered</div>
+    </div>
+    <p class="card-desc">Foto's geroteerd, type bleeds over images, sticker badges, fashion-spread feel. Bricolage Grotesque + DM Sans, experimenteel maar leesbaar.</p>
+    <div class="card-tags"><span class="tag">Bricolage</span><span class="tag">Layered</span><span class="tag">Fashion</span></div>
+  </a>
+</div>
+
+<footer>
+  <p>10 designs · alle op echte content (Hessenweg 184, 06 33 01 20 35, info@landhart.nl)</p>
+  <p>Vragen? <a href="mailto:we.blaauwendraad@gmail.com">we.blaauwendraad@gmail.com</a></p>
+</footer>
+
+</div>
+</body>
+</html>
