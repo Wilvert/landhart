@@ -102,13 +102,13 @@ a{ color:inherit; }
 }
 .masthead-nav{
   margin-left:auto;
-  display:flex; gap:.75rem;
+  display:flex; gap:.6rem;
   font-family:var(--body);
   font-size:.92rem;
   font-weight:500;
 }
 .masthead-nav a{
-  padding:.5rem 1.05rem;
+  padding:.5rem 1rem;
   text-decoration:none;
   border-radius:999px;
   opacity:.82;
@@ -117,23 +117,61 @@ a{ color:inherit; }
 }
 .masthead-nav a:hover,
 .masthead-nav a:focus-visible{ opacity:1; background:rgba(184,148,95,.16); }
-@media (max-width:720px){
-  .masthead-meta{ display:none; }
-}
-@media (max-width:560px){
-  .masthead-nav{ gap:.35rem; font-size:.86rem; }
+@media (max-width:900px){
+  .masthead-nav{ gap:.3rem; font-size:.85rem; }
   .masthead-nav a{ padding:.4rem .75rem; }
 }
-.masthead-meta{
-  font-family:var(--body);
-  font-size:.78rem;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  opacity:.78;
-  white-space:nowrap;
-}
 @media (max-width:720px){
-  .masthead-meta{ display:none; }
+  .masthead-nav{ display:none; }
+}
+
+/* ---------- Persistent Bel-knop (masthead-cta) ---------- */
+.masthead-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  padding:.55rem 1.1rem;
+  background:var(--gold);
+  color:#1A1207;
+  border-radius:999px;
+  font-family:var(--body);
+  font-size:.92rem;
+  font-weight:500;
+  letter-spacing:.005em;
+  text-decoration:none;
+  white-space:nowrap;
+  flex-shrink:0;
+  margin-left:auto;
+  position:relative;
+  transition:background .25s var(--ease), box-shadow .35s var(--ease), transform .2s var(--ease);
+  box-shadow:0 0 0 0 rgba(184,148,95,0);
+}
+.masthead-nav ~ .masthead-cta{ margin-left:.5rem; }
+.masthead-cta:hover{
+  background:var(--gold-2);
+  box-shadow:0 0 0 4px rgba(184,148,95,.22), 0 0 22px rgba(184,148,95,.40);
+  transform:translateY(-1px);
+}
+.cta-dot{
+  width:.55em; height:.55em;
+  background:#1A1207;
+  border-radius:50%;
+  display:inline-block;
+  animation:cta-pulse 2.4s var(--ease) infinite;
+}
+@keyframes cta-pulse{
+  0%, 100%{ transform:scale(1); opacity:1; }
+  50%     { transform:scale(1.35); opacity:.6; }
+}
+.cta-num{ display:inline; }
+.cta-short{ display:none; }
+@media (max-width:480px){
+  .masthead-cta{ padding:.5rem .9rem; font-size:.88rem; }
+  .cta-num{ display:none; }
+  .cta-short{ display:inline; }
+}
+@media (prefers-reduced-motion: reduce){
+  .cta-dot{ animation:none; }
 }
 
 /* ---------- Chapter shell ---------- */
@@ -457,6 +495,56 @@ a{ color:inherit; }
   max-width:42ch;
   margin:0;
   opacity:.92;
+}
+
+/* ---------- OVER ONS ---------- */
+.chapter-about{
+  background:var(--cream);
+  color:var(--ink);
+}
+.about-inner{ max-width:1180px; }
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:clamp(2rem, 5vw, 4rem);
+  align-items:center;
+}
+@media (min-width:880px){
+  .about-grid{ grid-template-columns:1.2fr 1fr; }
+}
+.about-text{ display:grid; gap:1.1rem; max-width:58ch; }
+.about-text p{
+  font-family:var(--display);
+  font-weight:300;
+  font-size:clamp(1.05rem, 1.45vw, 1.22rem);
+  line-height:1.65;
+  margin:0;
+  color:var(--ink);
+}
+.about-pull{
+  font-family:var(--display) !important;
+  font-style:italic;
+  font-weight:400 !important;
+  font-size:clamp(1.25rem, 2vw, 1.6rem) !important;
+  line-height:1.4 !important;
+  color:var(--gold) !important;
+  border-left:2px solid var(--gold);
+  padding-left:1.2rem;
+  margin-top:.6rem !important;
+}
+.about-photo{
+  margin:0;
+  border-radius:4px;
+  overflow:hidden;
+  aspect-ratio:4 / 5;
+  background:var(--moss);
+}
+.about-photo img{
+  width:100%; height:100%;
+  object-fit:cover;
+}
+@media (max-width:880px){
+  .about-photo{ aspect-ratio:16 / 10; max-height:460px; }
 }
 
 /* ---------- HOOFDSTUK IV — CONTACT ---------- */
