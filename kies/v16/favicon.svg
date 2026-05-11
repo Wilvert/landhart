@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" fill="#F1ECDC"/>
-  <text x="32" y="44" text-anchor="middle" font-family="Old Standard TT, Garamond, serif" font-size="44" font-weight="700" fill="#0A0A0A">L</text>
-  <line x1="6" y1="54" x2="58" y2="54" stroke="#0A0A0A" stroke-width="1.5"/>
-  <line x1="6" y1="58" x2="58" y2="58" stroke="#0A0A0A" stroke-width="0.8"/>
-</svg>

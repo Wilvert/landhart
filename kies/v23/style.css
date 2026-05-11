@@ -1,0 +1,689 @@
+/* ============================================================
+   LANDHART V23 — MANUSCRIPT ILLUMINATED
+   V4 Dark Forest + V20 Vertical Scroll Story + Illuminated DropCaps
+   ============================================================ */
+
+:root {
+  --ink:        #0A1408;
+  --ink-2:      #0E1B0B;
+  --ink-3:      #142210;
+  --line:       rgba(244, 238, 224, 0.10);
+  --line-soft:  rgba(244, 238, 224, 0.06);
+  --parchment:  #F4EEE0;
+  --parchment-dim: rgba(244, 238, 224, 0.66);
+  --parchment-low: rgba(244, 238, 224, 0.42);
+  --sage:       #7A9670;
+  --lime:       #A8E63B;
+
+  /* Illumination gold palette */
+  --gold-1: #E8C76B;
+  --gold-2: #D6B056;
+  --gold-3: #B8945F;
+  --gold-4: #8D6F3E;
+  --gold-glow: rgba(232, 199, 107, 0.28);
+
+  --t: cubic-bezier(.2,.7,.2,1);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--parchment);
+  background: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Atmospheric overlay – V4 signature */
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(110% 70% at 50% -10%, rgba(168,230,59,0.05), transparent 60%),
+    radial-gradient(60% 60% at 50% 120%, rgba(122,150,112,0.07), transparent 70%),
+    radial-gradient(40% 40% at 90% 20%, rgba(232,199,107,0.04), transparent 70%);
+  z-index: 1;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
+
+.skip {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--gold-1); color: var(--ink);
+  padding: 10px 14px; font-weight: 700;
+}
+.skip:focus { left: 12px; top: 12px; z-index: 1000; }
+
+.wrap {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 28px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================================
+   TYPOGRAPHY — Newsreader serif + Inter
+   ============================================================ */
+h1, h2, h3, h4, .serif {
+  font-family: 'Newsreader', 'Georgia', 'Times New Roman', serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+h1 { font-size: clamp(2.8rem, 6vw, 4.6rem); line-height: 1.04; margin: 0; font-weight: 300; }
+h2 { font-size: clamp(2.1rem, 4.4vw, 3.4rem); line-height: 1.08; margin: 0 0 .35em; font-weight: 300; }
+h3 { font-size: 1.4rem; line-height: 1.3; margin: 0 0 .5em; font-weight: 500; }
+
+em, .em { font-style: italic; color: var(--sage); font-family: 'Newsreader', serif; }
+
+.eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--gold-2);
+  display: inline-flex; align-items: center; gap: .8em;
+}
+.eyebrow::before {
+  content: "";
+  width: 28px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-3));
+}
+
+.roman {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  letter-spacing: .1em;
+  color: var(--gold-3);
+  font-feature-settings: "smcp";
+}
+
+/* ============================================================
+   ILLUMINATED DROP CAP — Signature
+   ============================================================ */
+.dropcap {
+  float: left;
+  font-family: 'Newsreader', serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: clamp(6rem, 13vw, 8.4rem);
+  line-height: 0.82;
+  padding: 0.22em 0.16em 0 0;
+  margin: 0.04em -0.02em 0 0;
+  background: linear-gradient(155deg,
+    #FFE9A8 0%,
+    var(--gold-1) 22%,
+    var(--gold-2) 48%,
+    var(--gold-3) 72%,
+    var(--gold-4) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-shadow:
+    0 0 24px rgba(232, 199, 107, 0.22),
+    0 1px 0 rgba(255, 233, 168, 0.18);
+  filter: drop-shadow(0 6px 18px rgba(232,199,107,0.08));
+  position: relative;
+}
+.dropcap::after {
+  /* inner highlight stroke */
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255,236,180,0.35), transparent 40%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  mix-blend-mode: screen;
+}
+
+/* Ornamental flourish next to drop cap */
+.flourish {
+  position: absolute;
+  left: -8px;
+  top: -10px;
+  width: 56px;
+  height: 56px;
+  opacity: .85;
+  pointer-events: none;
+}
+.chapter-intro { position: relative; }
+
+/* ============================================================
+   ORNATE GOLD RULES
+   ============================================================ */
+.ornate-rule {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 0 auto;
+  padding: 36px 0;
+  color: var(--gold-2);
+}
+.ornate-rule::before,
+.ornate-rule::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(184,148,95,0.15) 10%,
+    rgba(232,199,107,0.65) 45%,
+    rgba(232,199,107,0.85) 50%,
+    rgba(232,199,107,0.65) 55%,
+    rgba(184,148,95,0.15) 90%,
+    transparent 100%);
+}
+.ornate-rule svg {
+  width: 64px; height: 22px;
+  fill: none;
+  stroke: var(--gold-2);
+  stroke-width: 1;
+  flex: 0 0 auto;
+  filter: drop-shadow(0 0 6px rgba(232,199,107,0.18));
+}
+.ornate-rule .dot {
+  width: 5px; height: 5px;
+  background: var(--gold-2);
+  border-radius: 50%;
+  flex: 0 0 auto;
+  box-shadow: 0 0 8px rgba(232,199,107,0.55);
+}
+
+/* ============================================================
+   SCROLL PROGRESS — V20
+   ============================================================ */
+.progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold-3), var(--gold-1), var(--gold-3));
+  box-shadow: 0 0 12px var(--gold-glow);
+  z-index: 60;
+  transition: width 0.08s linear;
+}
+
+/* ============================================================
+   MASTHEAD — V20 sticky with chapter indicator
+   ============================================================ */
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(10, 20, 8, 0.72);
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  border-bottom: 1px solid var(--line);
+}
+.masthead-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 0;
+  gap: 24px;
+}
+.brand {
+  display: flex; align-items: baseline; gap: 12px;
+}
+.brand-mark {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.6rem;
+  background: linear-gradient(140deg, var(--gold-1), var(--gold-3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.brand-name {
+  font-family: 'Newsreader', serif;
+  font-size: 1.1rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--parchment);
+}
+.chapter-indicator {
+  display: flex; align-items: center; gap: 10px;
+  font-size: .8rem;
+  color: var(--parchment-dim);
+}
+.chapter-indicator .roman { font-size: .85rem; }
+.chapter-indicator .label { color: var(--parchment); font-family: 'Newsreader', serif; font-style: italic; }
+.nav { display: none; gap: 26px; }
+.nav a {
+  font-size: .82rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--parchment-dim);
+  transition: color .25s var(--t);
+}
+.nav a:hover { color: var(--gold-1); }
+
+@media (min-width: 880px) {
+  .nav { display: flex; }
+  .chapter-indicator { margin-left: auto; }
+}
+
+/* ============================================================
+   CHAPTER LAYOUT — 100vh per V20
+   ============================================================ */
+.chapter {
+  min-height: 100vh;
+  padding: 96px 0 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+.chapter-head {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.chapter-head .roman { font-size: 1.05rem; }
+
+.lede {
+  font-family: 'Newsreader', serif;
+  font-size: clamp(1.15rem, 1.7vw, 1.32rem);
+  line-height: 1.7;
+  color: var(--parchment);
+  max-width: 64ch;
+}
+.lede + .lede { margin-top: 1em; }
+.lede em { color: var(--sage); }
+
+/* ============================================================
+   CHAPTER I — HERO
+   ============================================================ */
+.hero {
+  padding-top: 60px;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.hero-copy h1 {
+  font-style: italic;
+  font-weight: 300;
+}
+.hero-copy h1 .accent {
+  display: block;
+  background: linear-gradient(140deg, var(--gold-1), var(--gold-3) 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-style: italic;
+}
+.hero-sub {
+  margin-top: 28px;
+  font-family: 'Newsreader', serif;
+  font-size: 1.2rem;
+  color: var(--parchment-dim);
+  max-width: 52ch;
+}
+.hero-cta {
+  display: flex; gap: 16px; margin-top: 36px; flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 26px;
+  border: 1px solid var(--gold-3);
+  border-radius: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: .82rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--parchment);
+  background: transparent;
+  cursor: pointer;
+  transition: all .35s var(--t);
+  position: relative;
+}
+.btn::after {
+  content: "→";
+  font-family: 'Newsreader', serif;
+  color: var(--gold-1);
+  transition: transform .35s var(--t);
+}
+.btn:hover {
+  background: linear-gradient(135deg, rgba(232,199,107,0.10), rgba(184,148,95,0.05));
+  border-color: var(--gold-1);
+  color: var(--gold-1);
+}
+.btn:hover::after { transform: translateX(4px); }
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold-2), var(--gold-4));
+  color: var(--ink);
+  border-color: var(--gold-2);
+  font-weight: 600;
+}
+.btn-primary::after { color: var(--ink); }
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--gold-1), var(--gold-3));
+  color: var(--ink);
+}
+
+.hero-figure {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.hero-figure img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: brightness(0.62) saturate(0.92) sepia(0.08);
+}
+.hero-figure::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg,
+    rgba(10,20,8,0.05) 0%,
+    rgba(10,20,8,0.4) 60%,
+    rgba(10,20,8,0.85) 100%);
+}
+.hero-caption {
+  position: absolute;
+  bottom: 20px; left: 22px; right: 22px;
+  z-index: 2;
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-size: .92rem;
+  color: var(--parchment-dim);
+  border-top: 1px solid rgba(232,199,107,0.30);
+  padding-top: 12px;
+}
+.hero-caption .gold { color: var(--gold-1); font-style: normal; letter-spacing: .12em; text-transform: uppercase; font-size: .68rem; font-family: 'Inter', sans-serif; }
+
+@media (min-width: 920px) {
+  .hero-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 80px;
+  }
+}
+
+/* ============================================================
+   CHAPTER II — DIENSTEN
+   ============================================================ */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-top: 40px;
+  border-top: 1px solid var(--line);
+}
+.service {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 28px;
+  align-items: start;
+  padding: 36px 4px;
+  border-bottom: 1px solid var(--line);
+  transition: background .4s var(--t), padding .4s var(--t);
+}
+.service:hover {
+  background: linear-gradient(90deg, rgba(232,199,107,0.05), transparent 70%);
+  padding-left: 18px;
+}
+.service-num {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--gold-3);
+  min-width: 36px;
+  padding-top: 4px;
+}
+.service-body h3 {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.65rem;
+  color: var(--parchment);
+  margin: 0 0 6px;
+}
+.service-body p {
+  margin: 0;
+  color: var(--parchment-dim);
+  font-size: 1rem;
+  max-width: 58ch;
+  line-height: 1.65;
+}
+.service-arrow {
+  font-family: 'Newsreader', serif;
+  font-size: 1.4rem;
+  color: var(--gold-3);
+  align-self: center;
+  opacity: 0;
+  transition: opacity .35s var(--t), transform .35s var(--t);
+}
+.service:hover .service-arrow { opacity: 1; transform: translateX(4px); }
+
+/* ============================================================
+   CHAPTER III — PROJECTEN (folio)
+   ============================================================ */
+.folio {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  margin-top: 40px;
+}
+.folio-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: center;
+}
+.folio-figure {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.folio-figure img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: brightness(0.72) saturate(0.95);
+  transition: transform 1.2s var(--t), filter .8s var(--t);
+}
+.folio-item:hover .folio-figure img { transform: scale(1.04); filter: brightness(0.85) saturate(1.05); }
+.folio-figure::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(10,20,8,0.7) 100%);
+  z-index: 1;
+}
+.folio-meta {
+  position: absolute;
+  left: 16px; bottom: 14px;
+  z-index: 2;
+  font-family: 'Inter', sans-serif;
+  font-size: .68rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold-1);
+}
+.folio-body .roman { font-size: .85rem; }
+.folio-body h3 {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-size: 1.85rem;
+  font-weight: 400;
+  color: var(--parchment);
+  margin: 8px 0 12px;
+}
+.folio-body p {
+  font-family: 'Newsreader', serif;
+  color: var(--parchment-dim);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 48ch;
+}
+.folio-body .place {
+  display: inline-block;
+  margin-top: 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: .72rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+
+@media (min-width: 820px) {
+  .folio-item {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+  }
+  .folio-item:nth-child(even) .folio-figure { order: 2; }
+}
+
+/* ============================================================
+   CHAPTER IV — CONTACT (colophon)
+   ============================================================ */
+.colophon {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+  align-items: start;
+}
+.colophon-info dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px 28px;
+}
+.colophon-info dt {
+  font-family: 'Inter', sans-serif;
+  font-size: .7rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold-3);
+  padding-top: 6px;
+}
+.colophon-info dd {
+  margin: 0;
+  font-family: 'Newsreader', serif;
+  font-size: 1.15rem;
+  color: var(--parchment);
+}
+.colophon-info dd a:hover { color: var(--gold-1); }
+.colophon-info dd em { font-size: .95rem; color: var(--sage); }
+
+.colophon-card {
+  border: 1px solid var(--gold-4);
+  padding: 36px 32px;
+  background:
+    linear-gradient(160deg, rgba(232,199,107,0.04), rgba(10,20,8,0) 70%),
+    rgba(20, 34, 16, 0.4);
+  position: relative;
+}
+.colophon-card::before, .colophon-card::after {
+  content: "";
+  position: absolute;
+  width: 18px; height: 18px;
+  border: 1px solid var(--gold-2);
+}
+.colophon-card::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
+.colophon-card::after  { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }
+
+.colophon-card h3 {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.6rem;
+  margin: 0 0 10px;
+  color: var(--gold-1);
+}
+.colophon-card p {
+  font-family: 'Newsreader', serif;
+  color: var(--parchment-dim);
+  margin: 0 0 24px;
+}
+.colophon-card .btn { width: 100%; justify-content: center; }
+
+@media (min-width: 820px) {
+  .colophon { grid-template-columns: 1.2fr 0.8fr; gap: 80px; }
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 44px 0 36px;
+  margin-top: 40px;
+  position: relative;
+  z-index: 2;
+}
+.foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: .8rem;
+  color: var(--parchment-low);
+}
+.foot .serif { font-style: italic; color: var(--gold-3); }
+.foot a:hover { color: var(--gold-1); }
+
+/* ============================================================
+   ANIMATIONS — animation-timeline: view()
+   ============================================================ */
+@supports (animation-timeline: view()) {
+  .chapter-head,
+  .lede,
+  .service,
+  .folio-item,
+  .colophon-info,
+  .colophon-card,
+  .hero-copy,
+  .hero-figure {
+    animation: rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 28%;
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .dropcap {
+    animation: gleam linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+  }
+  @keyframes gleam {
+    from { opacity: 0; filter: drop-shadow(0 6px 18px rgba(232,199,107,0.0)) blur(2px); }
+    to   { opacity: 1; filter: drop-shadow(0 6px 18px rgba(232,199,107,0.18)) blur(0); }
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* Focus */
+:focus-visible {
+  outline: 2px solid var(--gold-1);
+  outline-offset: 3px;
+}
+
+/* Selection */
+::selection { background: var(--gold-3); color: var(--ink); }
