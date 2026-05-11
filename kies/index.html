@@ -21,7 +21,6 @@
     --lime: #A8E63B;
     --gold: #B8945F;
     --line: rgba(244,238,224,0.10);
-    --line-soft: rgba(244,238,224,0.06);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -39,9 +38,8 @@
       radial-gradient(60% 60% at 50% 120%, rgba(122,150,112,0.06), transparent 70%);
   }
   a { color: inherit; text-decoration: none; }
-  .wrap { max-width: 1280px; margin: 0 auto; padding: clamp(2rem, 6vw, 5rem) clamp(1.2rem, 4vw, 2.4rem); position: relative; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: clamp(2rem, 6vw, 5rem) clamp(1.2rem, 4vw, 2.4rem); position: relative; }
 
-  /* Header */
   header.top {
     border-bottom: 1px solid var(--line);
     padding-bottom: 2.4rem;
@@ -70,10 +68,7 @@
     max-width: 24ch;
     color: var(--cream);
   }
-  h1 em {
-    font-style: italic;
-    color: var(--lime);
-  }
+  h1 em { font-style: italic; color: var(--lime); }
   .lede {
     font-size: 0.96rem;
     color: var(--cream-dim);
@@ -81,89 +76,53 @@
     margin-top: 1rem;
   }
 
-  /* Section heads */
-  .section-head {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    margin: 2.4rem 0 1.2rem;
-    flex-wrap: wrap;
-  }
-  .section-head h2 {
-    font-family: "Newsreader", Georgia, serif;
-    font-weight: 500;
-    font-size: 1.15rem;
-    letter-spacing: -0.01em;
-    color: var(--cream);
-  }
-  .section-head .meta {
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: var(--gold);
-    font-weight: 500;
-  }
-  .section-head .meta::before { content: "— "; margin-right: 0.3rem; }
-
-  /* Grids */
-  .grid-hero {
+  .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
     gap: 1px;
     background: var(--line);
     border: 1px solid var(--line);
-    margin-bottom: 0.6rem;
   }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1px;
-    background: var(--line);
-    border: 1px solid var(--line);
-  }
-
-  /* Card base */
   .card {
-    background: var(--ink);
-    padding: 1.5rem 1.4rem 1.7rem;
+    background: var(--ink-2);
+    padding: 2rem 2rem 2.2rem;
     display: grid;
     grid-template-rows: auto 1fr auto;
-    gap: 0.85rem;
-    min-height: 220px;
-    transition: background 0.3s, transform 0.3s;
+    gap: 0.9rem;
+    min-height: 280px;
+    transition: background 0.3s;
     position: relative;
   }
-  .card:hover { background: var(--ink-2); }
+  .card:hover { background: #11231A; }
   .card::after {
     content: "→";
     position: absolute;
-    bottom: 1.4rem; right: 1.4rem;
-    color: var(--sage);
-    font-size: 1.1rem;
-    transition: transform 0.3s, color 0.25s;
+    bottom: 1.6rem; right: 1.6rem;
+    color: var(--lime);
+    font-size: 1.2rem;
+    transition: transform 0.3s;
   }
-  .card:hover::after { transform: translateX(4px); color: var(--lime); }
-
+  .card:hover::after { transform: translateX(4px); }
   .card-num {
     font-family: "Newsreader", serif;
     font-style: italic;
-    font-size: 0.95rem;
-    color: var(--gold);
+    font-size: 1rem;
+    color: var(--lime);
     letter-spacing: 0.01em;
   }
   .card-name {
     font-family: "Newsreader", serif;
     font-weight: 500;
-    font-size: 1.15rem;
+    font-size: 1.5rem;
     letter-spacing: -0.005em;
     line-height: 1.2;
     color: var(--cream);
   }
   .card-desc {
-    font-size: 0.84rem;
+    font-size: 0.92rem;
     color: var(--cream-dim);
-    line-height: 1.5;
-    max-width: 38ch;
+    line-height: 1.55;
+    max-width: 46ch;
   }
   .card-tags {
     display: flex;
@@ -182,30 +141,6 @@
     font-weight: 500;
   }
 
-  /* Hero cards (V4 + V20) — bigger, more prominent */
-  .card-hero {
-    background: var(--ink-2);
-    padding: 2rem 2rem 2.2rem;
-    min-height: 280px;
-  }
-  .card-hero .card-num { color: var(--lime); font-size: 1rem; }
-  .card-hero .card-name { font-size: 1.5rem; }
-  .card-hero .card-desc { font-size: 0.92rem; max-width: 46ch; }
-  .card-hero .badge {
-    position: absolute;
-    top: 1.4rem; right: 1.4rem;
-    font-size: 0.66rem;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: var(--ink);
-    background: var(--lime);
-    padding: 0.32rem 0.7rem;
-    border-radius: 999px;
-    font-weight: 600;
-  }
-  .card-hero::after { color: var(--lime); }
-
-  /* Footer */
   footer.bottom {
     margin-top: 2.6rem;
     padding-top: 1.6rem;
@@ -234,179 +169,40 @@
     margin-top: 1rem;
   }
   .meta-link:hover { color: var(--lime); border-color: var(--lime); }
-
-  @media (max-width: 540px) {
-    .card-hero { padding: 1.6rem 1.4rem 1.8rem; min-height: 240px; }
-    .card-hero .card-name { font-size: 1.3rem; }
-  }
 </style>
 </head>
 <body>
 <div class="wrap">
 
 <header class="top">
-  <p class="eyebrow">Selectie · gekozen door eigenaar</p>
-  <h1>Twee gekozen richtingen — plus <em>twintig</em> varianten daarop.</h1>
-  <p class="lede">Landhart's eigenaar koos <strong style="color:var(--cream)">V4</strong> (Dark Forest Atmospheric) en <strong style="color:var(--cream)">V20</strong> (Vertical Scroll Story) als favorieten. Hieronder staan deze twee plus 20 nieuwe varianten die hun gedeelde DNA — dark/atmospheric mood, photo-driven hero met veil, italic accent voor emphasis, chapter-narratieve scroll — verder uitwerken. Elke variant heeft één eigen signature.</p>
+  <p class="eyebrow">Selectie · twee finalisten</p>
+  <h1>Twee visitekaartje-websites voor <em>Landhart</em>.</h1>
+  <p class="lede">Beide volledig op echte content (Hessenweg 184, 06 33 01 20 35, info@landhart.nl). Hieronder de twee gekozen ontwerpen — chapter-Romeinse cijfers zijn vervangen door gewone sectie-titels, klaar voor productie.</p>
   <a class="meta-link" href="/">← Huidige live-versie</a>
 </header>
 
-<div class="section-head">
-  <h2>De gekozen ontwerpen</h2>
-  <span class="meta">basis voor de varianten</span>
-</div>
-
-<div class="grid-hero">
-  <a class="card card-hero" href="v4/">
-    <span class="badge">Gekozen</span>
+<div class="grid">
+  <a class="card" href="v4/">
     <div>
-      <div class="card-num">№ 04</div>
+      <div class="card-num">Optie 1</div>
       <div class="card-name">Dark Forest Atmospheric</div>
     </div>
-    <p class="card-desc">Volledig dark forest theme `#0A1408` met cream typografie, lime `#A8E63B` glow op CTAs, sage italic accent in headlines, atmosphere overlay via radial gradients. Manrope sans, premium estate-feel.</p>
-    <div class="card-tags"><span class="tag">Manrope</span><span class="tag">Dark</span><span class="tag">Lime glow</span></div>
+    <p class="card-desc">Volledig dark forest theme `#0A1408` met cream typografie en lime `#A8E63B` glow op CTAs. Sage italic accent in headlines, atmosphere overlay via radial gradients. Manrope sans, premium estate-feel.</p>
+    <div class="card-tags"><span class="tag">Manrope</span><span class="tag">Dark</span><span class="tag">Lime glow</span><span class="tag">Estate</span></div>
   </a>
 
-  <a class="card card-hero" href="v20/">
-    <span class="badge">Gekozen</span>
+  <a class="card" href="v20/">
     <div>
-      <div class="card-num">№ 20</div>
+      <div class="card-num">Optie 2</div>
       <div class="card-name">Vertical Scroll Story</div>
     </div>
-    <p class="card-desc">4 hoofdstukken van 100vh als longread feature. Sticky masthead met tone-shift per chapter (cream/forest/moss), live chapter indicator, scroll progressbar gold→moss. Newsreader serif + Inter sans, Roman numerals.</p>
-    <div class="card-tags"><span class="tag">Newsreader</span><span class="tag">Chapters</span><span class="tag">Narrative</span></div>
-  </a>
-</div>
-
-<div class="section-head">
-  <h2>Twintig nieuwe varianten</h2>
-  <span class="meta">V21 — V40 · combineren V4 + V20 DNA</span>
-</div>
-
-<div class="grid">
-  <a class="card" href="v21/">
-    <div><div class="card-num">№ 21</div><div class="card-name">Dark Chronicle</div></div>
-    <p class="card-desc">V4 dark + V20 chapters in puurste vorm — altijd dark, lime accent overal (vervangt V20's gold), chapter-tags met lime glow.</p>
-    <div class="card-tags"><span class="tag">Manrope</span><span class="tag">Lime</span><span class="tag">Dark constant</span></div>
-  </a>
-
-  <a class="card" href="v22/">
-    <div><div class="card-num">№ 22</div><div class="card-name">Twilight Editorial</div></div>
-    <p class="card-desc">Dusk palette: deep navy `#0B1828` → warm sunset gold `#E8B560` met peach. Tone-shift door chapters volgt zonsondergang.</p>
-    <div class="card-tags"><span class="tag">Navy → Gold</span><span class="tag">Dusk</span><span class="tag">Gradient</span></div>
-  </a>
-
-  <a class="card" href="v23/">
-    <div><div class="card-num">№ 23</div><div class="card-name">Manuscript Illuminated</div></div>
-    <p class="card-desc">Gigantische gold-leaf drop caps op chapter intros (gradient `#FFE9A8 → #B8945F`), ornate SVG flourishes, antieke manuscript-feel modern toegepast.</p>
-    <div class="card-tags"><span class="tag">Newsreader</span><span class="tag">Drop caps</span><span class="tag">Gold leaf</span></div>
-  </a>
-
-  <a class="card" href="v24/">
-    <div><div class="card-num">№ 24</div><div class="card-name">Forest Diary</div></div>
-    <p class="card-desc">Chapters als dated journal entries ("Voorjaar 2026 · Achterveld · Entry I"). Handwritten italic Newsreader body, ink-blot SVG decoraties, persoonlijke notitie-feel.</p>
-    <div class="card-tags"><span class="tag">Italic body</span><span class="tag">Diary</span><span class="tag">Ink blots</span></div>
-  </a>
-
-  <a class="card" href="v25/">
-    <div><div class="card-num">№ 25</div><div class="card-name">Lantern Glow</div></div>
-    <p class="card-desc">Warm amber/lantern-gold `#E8B860` vervangt koude lime — gezellige estate-lantern-at-dusk feel. Inline SVG lantern-shapes als chapter dividers met sway-animation.</p>
-    <div class="card-tags"><span class="tag">Amber glow</span><span class="tag">Lanterns</span><span class="tag">Warm</span></div>
-  </a>
-
-  <a class="card" href="v26/">
-    <div><div class="card-num">№ 26</div><div class="card-name">Estate Almanac</div></div>
-    <p class="card-desc">4 chapters = 4 seizoenen (Lente/Zomer/Herfst/Winter) met per-chapter accent palette shift. Inline season-glyphs (knop/zon/blad/sneeuwvlok).</p>
-    <div class="card-tags"><span class="tag">Seizoenen</span><span class="tag">Almanac</span><span class="tag">Palette shift</span></div>
-  </a>
-
-  <a class="card" href="v27/">
-    <div><div class="card-num">№ 27</div><div class="card-name">Nocturne Indigo</div></div>
-    <p class="card-desc">Midnight indigo `#101830` palette (vervangt forest), mint-green `#9AE0B5` accent, 140 sterren-patroon op chapter backgrounds. Nachtelijke tuin onder de sterren.</p>
-    <div class="card-tags"><span class="tag">Indigo</span><span class="tag">Mint</span><span class="tag">Sterren</span></div>
-  </a>
-
-  <a class="card" href="v28/">
-    <div><div class="card-num">№ 28</div><div class="card-name">Botanical Nightfall</div></div>
-    <p class="card-desc">5 inline SVG hand-drawn botanicals (varen, blaadjes, paardebloem, eikenblad-tak, bessen) met stroke-dashoffset reveal — planten die uit het duister groeien bij scroll.</p>
-    <div class="card-tags"><span class="tag">SVG botanicals</span><span class="tag">Stroke reveal</span><span class="tag">Hand-drawn</span></div>
-  </a>
-
-  <a class="card" href="v29/">
-    <div><div class="card-num">№ 29</div><div class="card-name">Cinematic Frames</div></div>
-    <p class="card-desc">Letterboxed film-bars top/bottom, subtitle-style text overlays, scene titles in italic Newsreader, slate prefix "HOOFDSTUK I · HET LAND" met lime recording-tick.</p>
-    <div class="card-tags"><span class="tag">Letterbox</span><span class="tag">Subtitles</span><span class="tag">Cinematic</span></div>
-  </a>
-
-  <a class="card" href="v30/">
-    <div><div class="card-num">№ 30</div><div class="card-name">Glass Chapter</div></div>
-    <p class="card-desc">Glassmorphism panels (rgba bg + backdrop-blur 28px + inset highlight) op chapter content. Hero text op floating glass card over full-bleed photo. Vision Pro vibes.</p>
-    <div class="card-tags"><span class="tag">Glass</span><span class="tag">Backdrop blur</span><span class="tag">Depth</span></div>
-  </a>
-
-  <a class="card" href="v31/">
-    <div><div class="card-num">№ 31</div><div class="card-name">Pinned Horizon</div></div>
-    <p class="card-desc">V20 verticale chapters PLUS horizontaal pin-and-pan in de Projecten-chapter. Sectie pint zich vast, 7 panels scrollen horizontaal door scroll-progress.</p>
-    <div class="card-tags"><span class="tag">Pin scroll</span><span class="tag">Horizon</span><span class="tag">Hybrid</span></div>
-  </a>
-
-  <a class="card" href="v32/">
-    <div><div class="card-num">№ 32</div><div class="card-name">Dark Broadsheet</div></div>
-    <p class="card-desc">Multi-column magazine spread (3-koloms) in dark mode. Hairline column-rules, gold drop cap op lede, twee pull quotes met grote `"` mark. "De Landhart Verhalen".</p>
-    <div class="card-tags"><span class="tag">Multi-column</span><span class="tag">Magazine</span><span class="tag">Drop cap</span></div>
-  </a>
-
-  <a class="card" href="v33/">
-    <div><div class="card-num">№ 33</div><div class="card-name">Folio Pages</div></div>
-    <p class="card-desc">7 bladzijden (i–vii) als bookbinding folio. Page-numbers ("ii / vii") in italic gold corners, page-turn translate animation, gradient page-edge voor binding-feel.</p>
-    <div class="card-tags"><span class="tag">Folio</span><span class="tag">Page turn</span><span class="tag">Book</span></div>
-  </a>
-
-  <a class="card" href="v34/">
-    <div><div class="card-num">№ 34</div><div class="card-name">Letterpress Dark</div></div>
-    <p class="card-desc">Debossed type via inset text-shadows (pressed-into-paper look). Gold-leaf foil gradients met reflectie-animatie. Antieke print-craft op dark forest.</p>
-    <div class="card-tags"><span class="tag">Deboss</span><span class="tag">Gold foil</span><span class="tag">Letterpress</span></div>
-  </a>
-
-  <a class="card" href="v35/">
-    <div><div class="card-num">№ 35</div><div class="card-name">Spotlight Veil</div></div>
-    <p class="card-desc">Radial spotlight gradient per chapter (verschillende positie per sectie), mouse-tracking biased 70/30 naar cursor. Theater key-light op dark forest.</p>
-    <div class="card-tags"><span class="tag">Spotlight</span><span class="tag">Mouse track</span><span class="tag">Veil</span></div>
-  </a>
-
-  <a class="card" href="v36/">
-    <div><div class="card-num">№ 36</div><div class="card-name">Reading Longform</div></div>
-    <p class="card-desc">§-sectiemarks (§ I–IV), 12 footnote refs met persistente right-margin annotations, indented italic blockquotes. The New Yorker longread in dark mode.</p>
-    <div class="card-tags"><span class="tag">§ marks</span><span class="tag">Footnotes</span><span class="tag">Longform</span></div>
-  </a>
-
-  <a class="card" href="v37/">
-    <div><div class="card-num">№ 37</div><div class="card-name">Story Rail</div></div>
-    <p class="card-desc">Persistente linker zijbalk met chapter-index — gouden dot + lime bar markeert huidige sectie. Magazine-style chapter navigator. Op mobiel: bottom-bar fallback.</p>
-    <div class="card-tags"><span class="tag">Left rail</span><span class="tag">Nav index</span><span class="tag">Magazine</span></div>
-  </a>
-
-  <a class="card" href="v38/">
-    <div><div class="card-num">№ 38</div><div class="card-name">Concerto Movements</div></div>
-    <p class="card-desc">Album-cover hero met spinning vinyl, masthead als music-player control bar, chapters als "Movements" met italic tempo (Allegro/Andante/Larghetto/Scherzo/Coda).</p>
-    <div class="card-tags"><span class="tag">Vinyl</span><span class="tag">Album</span><span class="tag">Movements</span></div>
-  </a>
-
-  <a class="card" href="v39/">
-    <div><div class="card-num">№ 39</div><div class="card-name">Aurora Glow</div></div>
-    <p class="card-desc">Drie aurora-borealis gradient lagen (groen/paars/cyaan) op forest, traag asynchroon shiftend met 50s+ keyframes. Mystieke noorderlicht-feel.</p>
-    <div class="card-tags"><span class="tag">Aurora</span><span class="tag">Mystical</span><span class="tag">Slow drift</span></div>
-  </a>
-
-  <a class="card" href="v40/">
-    <div><div class="card-num">№ 40</div><div class="card-name">Library Edition</div></div>
-    <p class="card-desc">Bookplate-style page plates met dubbele border + ornate corner fleurons, "Cat. No. I · MMXXVI · Landhart Series · Vol. I/IV" headers, dark-stained-wood accents.</p>
-    <div class="card-tags"><span class="tag">Bookplate</span><span class="tag">Catalog</span><span class="tag">Library</span></div>
+    <p class="card-desc">Sectie-gewijs narratief met tone-shifts tussen welkom/diensten/projecten/contact. Sticky masthead met live sectie-indicator, scroll progressbar gold→moss. Newsreader serif + Inter sans.</p>
+    <div class="card-tags"><span class="tag">Newsreader</span><span class="tag">Sectie-shift</span><span class="tag">Narrative</span><span class="tag">Editorial</span></div>
   </a>
 </div>
 
 <footer class="bottom">
-  <p>22 designs · alle op echte content (Hessenweg 184, 06 33 01 20 35, info@landhart.nl) · alle dark/atmospheric/narrative DNA</p>
+  <p>2 finalisten · klaar voor de definitieve keuze</p>
   <p>Vragen? <a href="mailto:we.blaauwendraad@gmail.com">we.blaauwendraad@gmail.com</a></p>
 </footer>
 

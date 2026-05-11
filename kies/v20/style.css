@@ -102,20 +102,24 @@ a{ color:inherit; }
 }
 .masthead-nav{
   margin-left:auto;
-  display:flex; gap:.25rem;
-  font-family:var(--display);
-  font-style:italic;
-  font-size:.95rem;
+  display:flex; gap:.3rem;
+  font-family:var(--body);
+  font-size:.88rem;
+  font-weight:500;
 }
 .masthead-nav a{
-  display:inline-grid; place-items:center;
-  width:2rem; height:2rem;
+  padding:.42rem .95rem;
   text-decoration:none;
-  border-radius:50%;
-  opacity:.7;
+  border-radius:999px;
+  opacity:.78;
   transition:opacity .25s var(--ease), background .25s var(--ease);
 }
-.masthead-nav a:hover{ opacity:1; background:rgba(184,148,95,.18); }
+.masthead-nav a:hover,
+.masthead-nav a:focus-visible{ opacity:1; background:rgba(184,148,95,.18); }
+@media (max-width:560px){
+  .masthead-nav{ gap:.15rem; }
+  .masthead-nav a{ padding:.35rem .65rem; font-size:.82rem; }
+}
 .masthead-meta{
   font-family:var(--body);
   font-size:.78rem;
