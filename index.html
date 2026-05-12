@@ -270,32 +270,32 @@
     </header>
 
     <ol class="services">
-      <li class="service" style="--photo:url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1200&q=85')">
+      <li class="service">
         <span class="service-num">01</span>
         <h3>Tuinontwerp</h3>
         <p>We tekenen een ontwerp dat past bij uw huis, uw grond en hoe u uw tuin gebruikt. Schetsen, plattegrond en sfeerbeeld &mdash; alles op één lijn voor we de schop in de grond steken.</p>
       </li>
-      <li class="service" style="--photo:url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=85')">
+      <li class="service">
         <span class="service-num">02</span>
         <h3>Beplantingsplan</h3>
         <p>Welke planten gedijen op uw grond en standplaats? Een plan op maat, gebaseerd op bodem, lichtval en het gewenste onderhoudsniveau. Geen gokwerk &mdash; wel ervaring met wat hier groeit.</p>
       </li>
-      <li class="service" style="--photo:url('https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1200&q=85')">
+      <li class="service">
         <span class="service-num">03</span>
         <h3>Tuinaanleg</h3>
         <p>Van bestrating en beschoeiing tot het inplanten van borders. Alles in één hand uitgevoerd, zodat het samenkomt zoals het bedoeld is.</p>
       </li>
-      <li class="service" style="--photo:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=85')">
+      <li class="service">
         <span class="service-num">04</span>
         <h3>Onderhoud</h3>
         <p>Snoeien, maaien, schoffelen en bemesten. Periodiek of op afroep, altijd met dezelfde mensen die uw tuin kennen.</p>
       </li>
-      <li class="service" style="--photo:url('https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=1200&q=85')">
+      <li class="service">
         <span class="service-num">05</span>
         <h3>Renovatie</h3>
         <p>Tuin uit zijn jasje gegroeid? We brengen structuur en rust terug, met behoud van wat goed is en sloop van wat niet meer werkt.</p>
       </li>
-      <li class="service" style="--photo:url('https://images.unsplash.com/photo-1574482620811-1aa16ffe3c82?auto=format&fit=crop&w=1200&q=85')">
+      <li class="service">
         <span class="service-num">06</span>
         <h3>Projectbegeleiding</h3>
         <p>Het hele traject van A tot Z. Wij coördineren ook onze vaste partners voor wat we niet zelf doen &mdash; bestrating, vijver, schutting. Eén offerte, één aanspreekpunt, geen verrassingen.</p>
@@ -411,76 +411,7 @@
   </div>
 </footer>
 
-<script>
-  (function(){
-    // Scroll progress bar
-    var bar = document.getElementById('progressBar');
-    function tick(){
-      var h = document.documentElement;
-      var max = h.scrollHeight - h.clientHeight;
-      var p = max > 0 ? (h.scrollTop / max) : 0;
-      bar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
-    }
-    document.addEventListener('scroll', tick, {passive:true});
-    window.addEventListener('resize', tick);
-    tick();
-
-    // Section tone-shift via IntersectionObserver (masthead bg flips for forest/moss sections)
-    var masthead = document.getElementById('masthead');
-    var chapters = document.querySelectorAll('section.chapter[data-chapter]');
-    if ('IntersectionObserver' in window && masthead) {
-      var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if (e.isIntersecting) {
-            var tone = e.target.getAttribute('data-tone') || 'cream';
-            masthead.setAttribute('data-tone', tone);
-          }
-        });
-      }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
-      chapters.forEach(function(c){ io.observe(c); });
-    }
-
-    // Year
-    var y = document.getElementById('yr');
-    if (y) y.textContent = new Date().getFullYear();
-
-    // Contact form — mailto compose
-    var cf = document.getElementById('contactForm');
-    if (cf) {
-      cf.addEventListener('submit', function(e){
-        e.preventDefault();
-        var err = document.getElementById('formError');
-        err.hidden = true; err.textContent = '';
-
-        var naam = cf.naam.value.trim();
-        var email = cf.email.value.trim();
-        var tel = cf.telefoon.value.trim();
-        var bericht = cf.bericht.value.trim();
-
-        var errs = [];
-        if (!naam) errs.push('Vul je naam in.');
-        if (!email && !tel) errs.push('Vul minimaal je e-mailadres &oacute;f telefoonnummer in.');
-        if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errs.push('Het e-mailadres lijkt niet geldig.');
-        if (!bericht) errs.push('Schrijf even een bericht.');
-        if (errs.length) {
-          err.innerHTML = errs.join(' ');
-          err.hidden = false;
-          return;
-        }
-
-        var subject = 'Bericht van ' + naam + ' — landhart.nl';
-        var bodyLines = ['Naam: ' + naam];
-        if (email) bodyLines.push('E-mail: ' + email);
-        if (tel) bodyLines.push('Telefoon: ' + tel);
-        bodyLines.push('', 'Bericht:', bericht);
-
-        var href = 'mailto:info@landhart.nl?subject=' + encodeURIComponent(subject) +
-                   '&body=' + encodeURIComponent(bodyLines.join('\n'));
-        window.location.href = href;
-      });
-    }
-  })();
-</script>
+<script src="/script.js" defer></script>
 
 </body>
 </html>

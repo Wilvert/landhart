@@ -1,2 +1,3 @@
 /*
   Referrer-Policy: same-origin
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-0FgTvQqVAFxC8RJiO+EwEgNs49It8EEnfXilA5duNuk='; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com; connect-src 'self'; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests
