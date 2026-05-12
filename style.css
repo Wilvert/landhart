@@ -126,8 +126,6 @@ a{ color:inherit; }
 }
 @media (max-width:720px){
   .masthead-nav{ display:none; }
-  /* nav is verborgen — cta moet weer rechts uitlijnen i.p.v. .5rem gap */
-  .masthead-nav ~ .masthead-cta{ margin-left:auto; }
 }
 
 /* ---------- Persistent Bel-knop (masthead-cta) ---------- */
@@ -151,7 +149,12 @@ a{ color:inherit; }
   transition:background .25s var(--ease), box-shadow .35s var(--ease), transform .2s var(--ease);
   box-shadow:0 0 0 0 rgba(184,148,95,0);
 }
-.masthead-nav ~ .masthead-cta{ margin-left:.5rem; }
+/* desktop: kleinere gap tussen nav en cta. Op mobiel is nav verborgen
+   en moet de base margin-left:auto blijven werken, dus deze override
+   alleen op desktop laten vuren. */
+@media (min-width:721px){
+  .masthead-nav ~ .masthead-cta{ margin-left:.5rem; }
+}
 .masthead-cta:hover{
   background:var(--gold-2);
   box-shadow:0 0 0 4px rgba(184,148,95,.22), 0 0 22px rgba(184,148,95,.40);
@@ -188,10 +191,21 @@ a{ color:inherit; }
 }
 @media (max-width:720px){
   .chapter{ min-height:auto; padding:7rem var(--rail) 4rem; }
-  /* hero blijft schermvullend op telefoon */
+  /* hero blijft schermvullend op telefoon, en de CTA's worden onderaan
+     gepind zodat ze in de duim-zone vallen */
   .chapter-hero{
     min-height:100svh;
-    padding:6rem var(--rail) 3rem;
+    padding:6rem var(--rail) 2.5rem;
+    align-items:stretch;
+  }
+  .chapter-hero .hero-inner{
+    display:flex;
+    flex-direction:column;
+    align-self:stretch;       /* vul beschikbare hoogte */
+  }
+  .chapter-hero .hero-cta{
+    margin-top:auto;          /* duwt CTA's naar onderkant viewport */
+    padding-top:2rem;
   }
 }
 
