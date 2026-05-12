@@ -1,9 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://landhart.nl/</loc>
     <lastmod>2026-05-12</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://landhart.nl/images/tuin-landhart-hovenier-achterveld-1600.jpg</image:loc>
+      <image:title>Tuin door Landhart Hoveniers — volwassen beplanting</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://landhart.nl/images/mark-landhart-hovenier-achterveld-720.jpg</image:loc>
+      <image:title>Mark, hovenier en eigenaar van Landhart Hoveniers in Achterveld</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://landhart.nl/images/tuin-achterveld-585.jpg</image:loc>
+      <image:title>Tuinproject Landhart in Achterveld</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://landhart.nl/images/tuin-leusden-01-960.jpg</image:loc>
+      <image:title>Tuinproject Landhart in Leusden</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://landhart.nl/images/tuin-leusden-02-960.jpg</image:loc>
+      <image:title>Tuinproject Landhart in Leusden</image:title>
+    </image:image>
   </url>
 </urlset>
