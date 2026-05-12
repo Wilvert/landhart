@@ -478,6 +478,8 @@ a{ color:inherit; }
   -webkit-overflow-scrolling:touch;
   scrollbar-width:thin;
   scrollbar-color:var(--gold) rgba(244,238,224,.1);
+  /* Center cards when ze passen in viewport, anders fallback naar start (zodat eerste card bereikbaar blijft) */
+  justify-content:safe center;
 }
 .projects-rail::-webkit-scrollbar{ height:6px; }
 .projects-rail::-webkit-scrollbar-thumb{ background:var(--gold); border-radius:3px; }
