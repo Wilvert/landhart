@@ -1,4 +1,15 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
 Contact: mailto:info@landhart.nl
 Expires: 2027-05-12T00:00:00.000Z
+Encryption: https://landhart.nl/.well-known/pgp-key.txt
 Preferred-Languages: nl, en
 Canonical: https://landhart.nl/.well-known/security.txt
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQT6e7Ta03O8eKYLgXwdMJgG+i83hAUCagNo6wAKCRAdMJgG+i83
+hHGBAP9M/syebqo4foV6f7lHh4UhiimeDJ0MZl1VIMcZjyri5gEArzCuUopgPRRA
+lLEkQJgC7j15G0hoBRelIpsF8Cgd+Qg=
+=Xmmq
+-----END PGP SIGNATURE-----
