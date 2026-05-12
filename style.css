@@ -197,7 +197,7 @@ a{ color:inherit; }
      auto-gat zit tussen TITEL en LEDE — daar is de hero-foto zichtbaar. */
   .chapter-hero{
     min-height:100svh;
-    padding:7.5rem var(--rail) 4.5rem;
+    padding:8.5rem var(--rail) 5.5rem;
     align-items:stretch;
   }
   .chapter-hero .hero-inner{
