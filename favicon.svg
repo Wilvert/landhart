@@ -1,1 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#1A2417"/><text x="32" y="44" font-family="Georgia, serif" font-size="36" font-style="italic" font-weight="500" text-anchor="middle" fill="#B8945F">L</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Landhart logo: twee zaadlobben vormen samen een hart">
+  <rect width="64" height="64" rx="12" fill="#1A2417"/>
+  <!-- Stem -->
+  <line x1="32" y1="54" x2="32" y2="38" stroke="#B8945F" stroke-width="2.8" stroke-linecap="round"/>
+  <!-- Left cotyledon -->
+  <path d="M 32 38 C 16 32, 12 22, 17 15 C 26 12, 32 24, 32 38 Z" fill="#B8945F"/>
+  <!-- Right cotyledon — iets transparanter voor layered diepte -->
+  <path d="M 32 38 C 48 32, 52 22, 47 15 C 38 12, 32 24, 32 38 Z" fill="#B8945F" opacity=".82"/>
+</svg>

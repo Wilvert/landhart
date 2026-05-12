@@ -80,20 +80,17 @@ a{ color:inherit; }
   border-bottom-color:rgba(244,238,224,.12);
 }
 .brand{
-  display:inline-flex; align-items:baseline; gap:.55rem;
+  display:inline-flex; align-items:center; gap:.55rem;
   text-decoration:none; color:inherit;
   font-family:var(--display);
 }
 .brand-mark{
-  display:inline-grid; place-items:center;
-  width:1.6em; height:1.6em;
-  font-size:1rem;
-  border:1px solid currentColor;
-  border-radius:50%;
-  font-style:italic; font-weight:500;
-  letter-spacing:0;
+  display:inline-block;
+  width:1.8em; height:1.8em;
+  flex-shrink:0;
+  color:currentColor;
 }
-.brand-mark.big{ width:2em; height:2em; font-size:1.4rem; border-width:1.5px; color:var(--gold); border-color:var(--gold); }
+.brand-mark.big{ width:2.4em; height:2.4em; color:var(--gold); }
 .brand-name{
   font-family:var(--display);
   font-size:1.15rem;
