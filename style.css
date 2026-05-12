@@ -86,11 +86,13 @@ a{ color:inherit; }
 }
 .brand-mark{
   display:inline-block;
-  width:1.8em; height:1.8em;
+  width:1.7em;
+  height:auto;            /* aspect-ratio uit viewBox */
   flex-shrink:0;
-  color:currentColor;
+  color:var(--gold);      /* altijd goud — geen toggle met masthead-text */
+  vertical-align:middle;
 }
-.brand-mark.big{ width:2.4em; height:2.4em; color:var(--gold); }
+.brand-mark.big{ width:2.4em; color:var(--gold); }
 .brand-name{
   font-family:var(--display);
   font-size:1.15rem;
