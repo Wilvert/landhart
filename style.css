@@ -439,6 +439,16 @@ a{ color:inherit; }
   color:var(--cream);
 }
 .chapter-projects .chapter-title,
+.chapter-projects{
+  display:block;            /* override .chapter flex */
+  min-height:auto;          /* override 100vh */
+  padding-block:clamp(4rem, 8vw, 6rem);
+  padding-inline:0;         /* rail bepaalt zelf padding */
+}
+.chapter-projects .chapter-inner{
+  padding-inline:var(--rail);
+  margin-bottom:clamp(1.5rem, 3vw, 2.5rem);
+}
 .chapter-projects .chapter-lede{ color:var(--cream); }
 .chapter-projects .kicker{ color:var(--gold); opacity:1; }
 
