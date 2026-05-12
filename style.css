@@ -331,51 +331,70 @@ a{ color:inherit; }
 .chapter-services{ background:var(--cream); }
 .services{
   list-style:none; padding:0; margin:0;
-  display:grid; gap:1px;
-  background:rgba(26,36,23,.14);
-  border-top:1px solid rgba(26,36,23,.14);
-  border-bottom:1px solid rgba(26,36,23,.14);
+  --gap-x:clamp(1.6rem, 3vw, 2.4rem);
+  --gap-y:clamp(2rem, 3.5vw, 2.8rem);
+  display:grid;
   grid-template-columns:1fr;
+  column-gap:var(--gap-x);
+  row-gap:var(--gap-y);
 }
-@media (min-width:760px){ .services{ grid-template-columns:1fr 1fr; } }
-@media (min-width:1100px){ .services{ grid-template-columns:repeat(4,1fr); } }
+@media (min-width:640px){
+  .services{ grid-template-columns:1fr 1fr; }
+}
+@media (min-width:960px){
+  .services{ grid-template-columns:repeat(3,1fr); }
+}
 
 .service{
   position:relative;
-  padding:2.4rem 1.6rem 2rem;
-  background:var(--cream);
-  overflow:hidden;
+  padding:clamp(1.2rem, 2vw, 1.8rem) clamp(1rem, 1.8vw, 1.4rem);
+  background:transparent;
   isolation:isolate;
-  min-height:280px;
-  transition:color .4s var(--ease);
 }
-.service:nth-child(1){ --photo:url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1200&q=85'); }
-.service:nth-child(2){ --photo:url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=85'); }
-.service:nth-child(3){ --photo:url('https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1200&q=85'); }
-.service:nth-child(4){ --photo:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=85'); }
-.service:nth-child(5){ --photo:url('https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=1200&q=85'); }
-.service:nth-child(6){ --photo:url('https://images.unsplash.com/photo-1574482620811-1aa16ffe3c82?auto=format&fit=crop&w=1200&q=85'); }
-.service::before{
-  content:"";
-  position:absolute; inset:0;
-  background-image:var(--photo);
-  background-size:cover; background-position:center;
-  opacity:0;
-  transition:opacity .5s var(--ease);
-  z-index:0;
+
+/* Dividers — 3-koloms desktop layout: 6 items in 3×2 grid */
+@media (min-width:960px){
+  /* Vertical divider RECHTS van items 1, 2, 4, 5 (niet de laatste in elke rij) */
+  .service:not(:nth-child(3n))::after{
+    content:"";
+    position:absolute;
+    top:14%; bottom:14%;
+    right:calc(var(--gap-x) / -2);
+    width:1px;
+    background:rgba(26,36,23,.16);
+  }
+  /* Horizontal divider ONDER items 1, 2, 3 (alleen eerste rij) */
+  .service:nth-child(-n+3)::before{
+    content:"";
+    position:absolute;
+    left:12%; right:12%;
+    bottom:calc(var(--gap-y) / -2);
+    height:1px;
+    background:rgba(26,36,23,.16);
+  }
 }
-.service::after{
-  content:"";
-  position:absolute; inset:0;
-  background:linear-gradient(180deg, rgba(15,22,16,.25), rgba(15,22,16,.85));
-  opacity:0;
-  transition:opacity .5s var(--ease);
-  z-index:1;
+
+/* Dividers — 2-koloms tablet: 6 items in 2×3 grid */
+@media (min-width:640px) and (max-width:959px){
+  /* Vertical divider RECHTS van items 1, 3, 5 */
+  .service:not(:nth-child(2n))::after{
+    content:"";
+    position:absolute;
+    top:14%; bottom:14%;
+    right:calc(var(--gap-x) / -2);
+    width:1px;
+    background:rgba(26,36,23,.16);
+  }
+  /* Horizontal divider ONDER items 1, 2, 3, 4 (niet onder de laatste rij 5+6) */
+  .service:not(:nth-last-child(-n+2))::before{
+    content:"";
+    position:absolute;
+    left:12%; right:12%;
+    bottom:calc(var(--gap-y) / -2);
+    height:1px;
+    background:rgba(26,36,23,.16);
+  }
 }
-.service > *{ position:relative; z-index:2; transition:color .4s var(--ease); }
-.service:hover{ color:var(--cream); }
-.service:hover::before,
-.service:hover::after{ opacity:1; }
 
 .service-num{
   font-family:var(--display); font-style:italic;
