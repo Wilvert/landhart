@@ -80,9 +80,10 @@ a{ color:inherit; }
   border-bottom-color:rgba(244,238,224,.12);
 }
 .brand{
-  display:inline-flex; align-items:center; gap:.55rem;
+  display:inline-flex; align-items:center; gap:.6rem;
   text-decoration:none; color:inherit;
   font-family:var(--display);
+  line-height:1;            /* echte glyph-hoogte voor flex-centering */
 }
 .brand-mark{
   display:inline-block;
@@ -95,9 +96,12 @@ a{ color:inherit; }
 .brand-mark.big{ width:2.4em; color:var(--gold); }
 .brand-name{
   font-family:var(--display);
-  font-size:1.15rem;
+  font-size:1.4rem;
   font-weight:500;
-  letter-spacing:.01em;
+  letter-spacing:.005em;
+  line-height:1;
+  /* optische correctie: Newsreader-glyphs hangen iets boven het midden */
+  transform:translateY(.04em);
 }
 .masthead-nav{
   margin-left:auto;
