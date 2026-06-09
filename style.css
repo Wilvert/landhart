@@ -645,6 +645,58 @@ a{ color:inherit; }
   }
 }
 
+/* ---------- VEELGESTELDE VRAGEN ---------- */
+.chapter-faq{ background:var(--cream-2); color:var(--ink); }
+.faq-inner{ max-width:880px; }
+.faq-list{
+  margin-top:clamp(2rem, 5vw, 3.5rem);
+  border-top:1px solid rgba(26,36,23,.16);
+}
+.faq-item{
+  border-bottom:1px solid rgba(26,36,23,.16);
+}
+.faq-item summary{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1.5rem;
+  padding:1.4rem 0;
+  cursor:pointer;
+  list-style:none;
+  transition:color .2s var(--ease);
+}
+.faq-item summary::-webkit-details-marker{ display:none; }
+.faq-item summary h3{
+  font-family:var(--display);
+  font-weight:500;
+  font-size:clamp(1.08rem, 2.6vw, 1.32rem);
+  line-height:1.35;
+  margin:0;
+  color:var(--ink);
+}
+.faq-item summary::after{
+  content:"";
+  flex-shrink:0;
+  width:.7rem; height:.7rem;
+  border-right:2px solid var(--gold-2);
+  border-bottom:2px solid var(--gold-2);
+  transform:rotate(45deg) translateY(-.15em);
+  transition:transform .25s var(--ease);
+}
+.faq-item[open] summary::after{ transform:rotate(225deg) translateY(0); }
+.faq-item summary:hover h3{ color:var(--gold-2); }
+.faq-answer{
+  padding:0 0 1.5rem;
+  max-width:62ch;
+}
+.faq-answer p{
+  font-size:1rem;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin:0;
+}
+.faq-answer a{ color:var(--gold-2); text-underline-offset:.18em; }
+
 /* ---------- HOOFDSTUK IV — CONTACT ---------- */
 .chapter-contact{
   background:var(--cream);

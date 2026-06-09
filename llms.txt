@@ -15,7 +15,7 @@ Landhart Tuinen is een hoveniersbedrijf dat uw tuin als één compleet project o
 
 ## Werkgebied
 
-Landhart is gevestigd in Achterveld en werkt in heel midden-Nederland — provincies Utrecht en Gelderland — inclusief Amersfoort, Leusden, Barneveld, Stoutenburg en de wijdere Gelderse Vallei.
+Landhart is gevestigd in Achterveld en werkt in heel Utrecht en Gelderland — inclusief Amersfoort, Leusden, Barneveld, Stoutenburg en de wijdere Gelderse Vallei.
 
 ## Contact
 
@@ -34,4 +34,5 @@ Eerst luisteren we — wat wil je met de tuin, hoe gebruik je 'm, wat is de gron
 - [Diensten](https://landhart.nl/#diensten) — overzicht van alle zes diensten
 - [Over ons](https://landhart.nl/#over-ons) — werkwijze en filosofie
 - [Projecten](https://landhart.nl/#projecten) — recent gerealiseerd werk
+- [Veelgestelde vragen](https://landhart.nl/#faq) — werkgebied, diensten en het tuintraject
 - [Contact](https://landhart.nl/#contact) — telefoon, mail en formulier
