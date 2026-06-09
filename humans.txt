@@ -1,0 +1,15 @@
+/* TEAM */
+Hovenier & eigenaar: Mark
+Bedrijf: Landhart Tuinen
+Locatie: Achterveld, Utrecht (NL)
+
+/* CONTACT */
+Telefoon: 06 33 01 20 35
+E-mail: info@landhart.nl
+Website: https://landhart.nl/
+
+/* SITE */
+Werkgebied: Utrecht en Gelderland — Achterveld, Amersfoort, Leusden, Barneveld, Stoutenburg
+Diensten: tuinontwerp, tuinaanleg, tuinrenovatie, tuinonderhoud, beplantingsplan, projectbegeleiding
+Standards: HTML5, CSS, progressieve verbetering, schema.org JSON-LD
+Hosting: Cloudflare Pages

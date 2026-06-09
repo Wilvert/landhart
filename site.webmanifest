@@ -1,0 +1,17 @@
+{
+  "name": "Landhart Tuinen",
+  "short_name": "Landhart",
+  "description": "Hovenier in Achterveld voor tuinontwerp, tuinaanleg, renovatie en onderhoud — uit één hand, in Utrecht en Gelderland.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "lang": "nl-NL",
+  "background_color": "#1A2417",
+  "theme_color": "#1A2417",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" },
+    { "src": "/brand/landhart-logo-groen-250.png", "type": "image/png", "sizes": "250x250" },
+    { "src": "/brand/landhart-logo-groen-512.png", "type": "image/png", "sizes": "512x512" },
+    { "src": "/brand/landhart-logo-groen-1024.png", "type": "image/png", "sizes": "1024x1024" }
+  ]
+}
