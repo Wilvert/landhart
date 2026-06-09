@@ -21,3 +21,13 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy . --project-name=landhart --branch=main --commit-dirty=true
+
+      # Meldt de wijziging direct aan Bing/Yandex/ChatGPT-index via IndexNow.
+      # De sleutel is niet geheim — hij staat publiek op /<key>.txt (IndexNow-design).
+      - name: Ping IndexNow
+        run: |
+          sleep 10  # even wachten tot de productie-URL de nieuwe deploy serveert
+          curl -sS -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            --data '{"host":"landhart.nl","key":"c75216060ea926e5bd09951197c99940","keyLocation":"https://landhart.nl/c75216060ea926e5bd09951197c99940.txt","urlList":["https://landhart.nl/"]}' \
+            -w "\nIndexNow: HTTP %{http_code}\n"
