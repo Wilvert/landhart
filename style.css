@@ -95,17 +95,17 @@ a{ color:inherit; }
   font-family:var(--display);
   line-height:1;            /* echte glyph-hoogte voor flex-centering */
 }
-.brand-logo{ display:block; width:7.25rem; height:auto; flex-shrink:0; }
+.brand-logo{ display:block; height:auto; }
 .brand-logo.big{ width:13rem; }
-/* over de hero: groter en helderder */
-.masthead:not(.vast) .brand-logo{ width:9.5rem; filter:brightness(1.15) drop-shadow(0 1px 5px rgba(0,0,0,.45)); }
-/* crème balk: donkerder goud, anders te weinig contrast */
-.masthead.vast .brand-logo{ filter:brightness(.55) saturate(1.1); }
-.masthead.vast[data-tone="forest"] .brand-logo,
-.masthead.vast[data-tone="moss"] .brand-logo{ filter:none; }
+.brand-mark{ display:block; width:4.25rem; height:auto; flex-shrink:0; filter:brightness(.55) saturate(1.1); }
+/* crème balk donkerder goud; op donker het eigen goud; over de hero helderder */
+.masthead.vast[data-tone="forest"] .brand-mark,
+.masthead.vast[data-tone="moss"] .brand-mark{ filter:none; }
+.masthead:not(.vast) .brand-mark{ filter:brightness(1.15) drop-shadow(0 1px 5px rgba(0,0,0,.45)); }
+.brand-name{ font-size:1.15rem; font-weight:500; white-space:nowrap; line-height:1; }
 @media (max-width:720px){
-  .masthead:not(.vast) .brand-logo{ width:5.75rem; }
-  .masthead .brand-logo{ width:5rem; }
+  .brand-mark{ width:3.5rem; }
+  .brand-name{ font-size:1.02rem; }
   .brand-logo.big{ width:9rem; }
 }
 .masthead-nav{
