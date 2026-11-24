@@ -168,12 +168,8 @@ a{ color:inherit; }
   transition:transform .35s var(--ease);
 }
 .masthead-cta:hover .cta-icon{ transform:rotate(-12deg) scale(1.08); }
-.cta-num{ display:inline; }
-.cta-short{ display:none; }
 @media (max-width:480px){
   .masthead-cta{ padding:.5rem .9rem; font-size:.88rem; }
-  .cta-num{ display:none; }
-  .cta-short{ display:inline; }
 }
 @media (prefers-reduced-motion: reduce){
   .masthead-cta:hover .cta-icon{ transform:none; }
