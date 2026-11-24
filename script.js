@@ -59,7 +59,7 @@
 
       if (cf._honey.value) return;
 
-      knop.disabled = true; knop.textContent = 'Bezig met versturen…';
+      knop.disabled = true; knop.textContent = 'Bezig met versturen, dit kan even duren…';
       var data = { naam: naam, telefoon: tel, bericht: bericht,
         _subject: 'Bericht van ' + naam + ' via landhart.nl', _template: 'table' };
       if (email) data.email = email;
@@ -67,7 +67,7 @@
       // referrerPolicy: FormSubmit wil weten van welke site het bericht komt;
       // de rest van de site geeft die niet door.
       var stop = new AbortController();
-      var klok = setTimeout(function(){ stop.abort(); }, 20000);
+      var klok = setTimeout(function(){ stop.abort(); }, 90000);
       fetch('https://formsubmit.co/ajax/info@landhart.nl', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
@@ -82,7 +82,7 @@
           ok.hidden = false;
         });
       }).catch(function(){
-        err.textContent = 'Versturen is niet gelukt. Bel 06 33 01 20 35 of mail naar info@landhart.nl. Uw tekst staat er nog.';
+        err.textContent = 'Wij konden niet bevestigen dat uw bericht is verstuurd. Bel 06 33 01 20 35 of mail naar info@landhart.nl. Uw tekst staat er nog.';
         err.hidden = false;
       }).then(function(){
         clearTimeout(klok);
