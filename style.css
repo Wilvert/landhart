@@ -341,7 +341,7 @@ a{ color:inherit; }
 .btn-large{ padding:1.1rem 2rem; font-size:1rem; }
 
 /* ---------- DIENSTEN: één rij, zijwaarts te schuiven ---------- */
-.chapter.chapter-services{ background:#F7F5EF; min-height:0; padding:clamp(3.5rem, 6vw, 5rem) var(--rail); scroll-margin-top:3rem; }
+.chapter.chapter-services{ background:#F7F5EF; min-height:0; padding:clamp(5rem, 10vw, 9rem) var(--rail); scroll-margin-top:3rem; }
 .diensten-kop{ display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1.6rem; }
 .diensten-titel{ font-family:var(--display); font-weight:400; font-size:clamp(2rem, 3.6vw, 3rem); line-height:1.1; letter-spacing:-.015em; margin:0; }
 .schuiven{ display:flex; gap:.5rem; }
@@ -359,7 +359,7 @@ a{ color:inherit; }
 .diensten::-webkit-scrollbar{ display:none; }
 .diensten:focus-visible{ outline:2px solid var(--gold); outline-offset:6px; }
 .dienst{ scroll-snap-align:start; }
-.dienst-beeld{ aspect-ratio:1; display:grid; place-items:center; background:#E4E0D3; color:#666A5D; font-size:.85rem; margin-bottom:.7rem; }
+.dienst-beeld{ aspect-ratio:2/1; display:grid; place-items:center; background:#E4E0D3; color:#666A5D; font-size:.85rem; margin-bottom:.7rem; }
 .dienst-nr{ font-family:var(--display); font-size:.95rem; color:#6F7469; }
 .dienst h3{ font-family:var(--display); font-weight:400; font-size:1.4rem; letter-spacing:-.01em; line-height:1.25; margin:.1rem 0 .3rem; }
 .dienst p{ font-family:var(--display); margin:0; font-size:1.02rem; line-height:1.45; color:var(--ink-soft); }
