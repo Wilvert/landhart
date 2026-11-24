@@ -849,6 +849,9 @@ a{ color:inherit; }
   justify-self:start;
   margin-top:.4rem;
 }
+.honing{ position:absolute; left:-9999px; }
+.form-ok{ background:rgba(47,74,51,.12); border:1px solid rgba(47,74,51,.45); border-radius:8px; padding:.7rem .95rem; font-size:.92rem; }
+.contact-form button[disabled]{ opacity:.6; cursor:default; }
 .form-fine{
   font-size:.76rem;
   color:var(--ink-soft);
