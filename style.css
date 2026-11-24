@@ -341,8 +341,8 @@ a{ color:inherit; }
 .btn-large{ padding:1.1rem 2rem; font-size:1rem; }
 
 /* ---------- DIENSTEN: één rij, zijwaarts te schuiven ---------- */
-.chapter.chapter-services{ background:#F7F5EF; min-height:0; padding:clamp(5rem, 10vw, 9rem) var(--rail); scroll-margin-top:3rem; }
-.diensten-kop{ display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1.6rem; }
+.chapter.chapter-services{ background:#F7F5EF; min-height:0; padding:clamp(5rem, 10vw, 9rem) var(--rail) clamp(6.5rem, 13vw, 12rem); scroll-margin-top:3rem; }
+.diensten-kop{ display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:clamp(2.2rem, 4.5vw, 4rem); }
 .diensten-titel{ font-family:var(--display); font-weight:400; font-size:clamp(2rem, 3.6vw, 3rem); line-height:1.1; letter-spacing:-.015em; margin:0; }
 .schuiven{ display:flex; gap:.5rem; }
 .schuiven[hidden]{ display:none; }
