@@ -51,6 +51,15 @@
     werkBij();
   }
 
+  // Over ons minstens even hoog als Diensten
+  var diensten = document.getElementById('diensten');
+  var overOns = document.getElementById('over-ons');
+  if (diensten && overOns && 'ResizeObserver' in window) {
+    new ResizeObserver(function(){
+      overOns.style.setProperty('--diensten-hoogte', diensten.offsetHeight + 'px');
+    }).observe(diensten);
+  }
+
   // Year
   var y = document.getElementById('yr');
   if (y) y.textContent = new Date().getFullYear();

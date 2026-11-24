@@ -522,7 +522,12 @@ a{ color:inherit; }
   background:var(--cream);
   color:var(--ink);
 }
-.about-inner{ max-width:1180px; }
+.chapter.chapter-about{ min-height:var(--diensten-hoogte, 0); align-items:stretch; padding:clamp(5rem, 10vw, 9rem) var(--rail) clamp(4rem, 7vw, 6rem); }
+.about-inner{ max-width:1180px; display:flex; flex-direction:column; }
+@media (min-width:1200px){ .about-inner{ max-width:1660px; } }
+.about-titel{ text-align:right; margin-bottom:clamp(2rem, 4vw, 3rem); }
+.about-inner .about-grid{ margin-block:auto; }
+.about-sub{ font-family:var(--display); font-weight:400; font-size:clamp(1.4rem, 2.2vw, 1.9rem); line-height:1.25; margin:0; }
 .about-grid{
   display:grid;
   grid-template-columns:1fr;
@@ -530,7 +535,8 @@ a{ color:inherit; }
   align-items:center;
 }
 @media (min-width:880px){
-  .about-grid{ grid-template-columns:1.2fr 1fr; }
+  .about-grid{ grid-template-columns:1fr 1.2fr; }
+  .about-text{ justify-self:end; }
 }
 .about-text{ display:grid; gap:1.1rem; max-width:58ch; }
 .about-text p{
@@ -558,9 +564,9 @@ a{ color:inherit; }
   overflow:hidden;
   aspect-ratio:1 / 1;
   background:var(--moss);
-  max-width:clamp(240px, 32vw, 340px);
+  max-width:clamp(260px, 30vw, 440px);
   width:100%;
-  justify-self:end;
+  justify-self:center;
   align-self:center;
   box-shadow:0 20px 40px -20px rgba(15,22,16,.32);
 }
