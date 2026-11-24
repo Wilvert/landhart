@@ -77,17 +77,15 @@ a{ color:inherit; }
   background:rgba(244,238,224,.78);
   backdrop-filter:blur(14px) saturate(1.2);
   -webkit-backdrop-filter:blur(14px) saturate(1.2);
-  border-bottom:1px solid rgba(26,36,23,.08);
   color:var(--ink);
   animation:balkIn .3s var(--ease);
-  transition:background .5s var(--ease), color .5s var(--ease), border-color .5s var(--ease);
+  transition:background .5s var(--ease), color .5s var(--ease);
 }
 @keyframes balkIn{ from{ transform:translateY(-100%); } }
 .masthead.vast[data-tone="forest"],
 .masthead.vast[data-tone="moss"]{
   background:rgba(15,22,16,.62);
   color:var(--cream);
-  border-bottom-color:rgba(244,238,224,.12);
 }
 .brand{
   display:inline-flex; align-items:center; gap:.6rem;
