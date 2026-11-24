@@ -1,10 +1,14 @@
 (function(){
   // Scroll progress bar
   var bar = document.getElementById('progressBar');
+  var kop = document.getElementById('masthead');
+  var hero = document.getElementById('top');
   function tick(){
     var h = document.documentElement;
     var max = h.scrollHeight - h.clientHeight;
     var p = max > 0 ? (h.scrollTop / max) : 0;
+    // Voorbij de hero wordt de kop een vaste balk
+    kop.classList.toggle('vast', h.scrollTop > hero.offsetHeight - 70);
     bar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
   }
   document.addEventListener('scroll', tick, {passive:true});
