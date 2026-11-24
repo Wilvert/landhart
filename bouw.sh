@@ -13,3 +13,8 @@ t=re.sub(r'\s+',' ',t)
 t=re.sub(r' ?([{};]) ?',r'\1',t).replace(';}','}')
 open('dist/style.css','w',encoding='utf-8').write(t.strip())
 P
+# Versie achter CSS en JS, zodat een nieuwe uitrol niet op een oude cache stuit.
+for f in style.css script.js; do
+  v=$(sha256sum "dist/$f" | cut -c1-10)
+  find dist -name '*.html' -exec sed -i "s#\"/$f\"#\"/$f?v=$v\"#" {} +
+done
