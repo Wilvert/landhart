@@ -169,7 +169,9 @@ a{ color:inherit; }
 }
 .masthead-cta:hover .cta-icon{ transform:rotate(-12deg) scale(1.08); }
 @media (max-width:480px){
-  .masthead-cta{ padding:.5rem .9rem; font-size:.88rem; }
+  .masthead-cta{ width:44px; height:44px; padding:0; justify-content:center; }
+  .masthead-cta .cta-icon{ width:22px; height:22px; }
+  .cta-naam{ display:none; }
 }
 @media (prefers-reduced-motion: reduce){
   .masthead-cta:hover .cta-icon{ transform:none; }
