@@ -311,7 +311,10 @@ a{ color:inherit; }
   padding:5rem var(--rail) clamp(1.5rem, 8vh, 5.5rem);
 }
 .hero-inner{ max-width:1180px; }
-@media (min-width:1200px){ .hero-inner{ max-width:1660px; } }   /* gelijk met Diensten */
+/* hero, titel Diensten en Over mij delen één smallere breedte; de foto's bij Diensten blijven breed */
+@media (min-width:1200px){
+  .hero-inner, .diensten-kop, .about-inner{ width:100%; max-width:min(1180px, 84vw); margin-inline:auto; }
+}
 .hero-title{
   font-family:var(--display);
   font-weight:400;
@@ -523,8 +526,7 @@ a{ color:inherit; }
   color:var(--ink);
 }
 .chapter.chapter-about{ min-height:var(--diensten-hoogte, 0); align-items:stretch; padding:clamp(5rem, 10vw, 9rem) var(--rail) clamp(4rem, 7vw, 6rem); }
-.about-inner{ max-width:1180px; display:flex; flex-direction:column; }
-@media (min-width:1200px){ .about-inner{ max-width:1660px; } }
+.about-inner{ display:flex; flex-direction:column; }
 .about-titel{ text-align:right; margin-bottom:clamp(2rem, 4vw, 3rem); }
 .about-inner .about-grid{ margin-block:auto; }
 .about-sub{ font-family:var(--display); font-weight:400; font-size:clamp(1.4rem, 2.2vw, 1.9rem); line-height:1.25; margin:0; }
