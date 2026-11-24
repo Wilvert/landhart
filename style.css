@@ -307,6 +307,7 @@ a{ color:inherit; }
   margin:0 0 1.6rem;
   text-wrap:balance;
 }
+@media (max-width:720px){ .hero-title{ margin-bottom:clamp(1.6rem, 8vh, 4.5rem); } }
 .hero-cta{ display:flex; flex-wrap:wrap; gap:.85rem; }
 
 /* ---------- Buttons ---------- */
