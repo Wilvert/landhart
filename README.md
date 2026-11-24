@@ -30,7 +30,7 @@ Newsreader (koppen) en Inter (tekst), zelf gehost in `fonts/`. Kleuren staan bov
 ```
 index.html                       hoofdpagina (HTML + minimale vanilla JS)
 style.css                        styling (vanilla CSS, geen frameworks)
-favicon.svg                      icon
+favicon.ico, icons/              favicon en app-iconen
 privacy/                         privacyverklaring
 fonts/, images/, brand/          lettertypen, foto's, logo's
 robots.txt                       SEO crawl-regels

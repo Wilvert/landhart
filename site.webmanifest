@@ -9,9 +9,8 @@
   "background_color": "#1A2417",
   "theme_color": "#1A2417",
   "icons": [
-    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" },
-    { "src": "/brand/landhart-logo-groen-250.png", "type": "image/png", "sizes": "250x250" },
-    { "src": "/brand/landhart-logo-groen-512.png", "type": "image/png", "sizes": "512x512" },
-    { "src": "/brand/landhart-logo-groen-1024.png", "type": "image/png", "sizes": "1024x1024" }
+    { "src": "/icons/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/icons/icon-512.png", "type": "image/png", "sizes": "512x512" },
+    { "src": "/icons/icon-maskable-512.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" }
   ]
 }
