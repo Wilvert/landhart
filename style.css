@@ -310,7 +310,8 @@ a{ color:inherit; }
   align-items:flex-end;
   padding:5rem var(--rail) clamp(1.5rem, 8vh, 5.5rem);
 }
-.hero-inner{ max-width:1100px; }
+.hero-inner{ max-width:1180px; }
+@media (min-width:1200px){ .hero-inner{ max-width:1580px; } }   /* gelijk met Diensten */
 .hero-title{
   font-family:var(--display);
   font-weight:400;
