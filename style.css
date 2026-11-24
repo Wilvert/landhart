@@ -262,8 +262,14 @@ a{ color:inherit; }
 .chapter-bg.subtle img{ opacity:.55; }
 .chapter-veil{
   position:absolute; inset:0; z-index:1;
-  background:linear-gradient(180deg, rgba(15,22,16,.78) 0%, rgba(15,22,16,.55) 50%, rgba(15,22,16,.82) 100%);
+  background:
+    linear-gradient(180deg, rgba(15,22,16,.5) 0%, rgba(15,22,16,0) 26%),
+    linear-gradient(90deg, rgba(15,22,16,.66) 0%, rgba(15,22,16,.45) 42%, rgba(15,22,16,.05) 78%);
 }
+@media (max-width:720px){
+  .chapter-veil{ background:linear-gradient(180deg, rgba(15,22,16,.62) 0%, rgba(15,22,16,.38) 34%, rgba(15,22,16,.1) 46%, rgba(15,22,16,.62) 64%, rgba(15,22,16,.72) 100%); }
+}
+.hero-title,.hero-lede{ text-shadow:0 1px 18px rgba(15,22,16,.55); }
 .chapter-veil.light{
   background:linear-gradient(180deg, rgba(15,22,16,.35) 0%, rgba(15,22,16,.55) 100%);
 }
