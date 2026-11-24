@@ -95,31 +95,12 @@ a{ color:inherit; }
   font-family:var(--display);
   line-height:1;            /* echte glyph-hoogte voor flex-centering */
 }
-.brand-mark{
-  display:inline-block;
-  width:1.7em;
-  height:auto;            /* aspect-ratio uit viewBox */
-  flex-shrink:0;
-  color:var(--gold);      /* altijd goud — geen toggle met masthead-text */
-  vertical-align:middle;
-}
-img.brand-mark{ width:3.1rem; }
-img.brand-mark.big{ width:4.5rem; }
-.brand-mark.big{ width:2.4em; color:var(--gold); }
-.brand-name{
-  font-family:var(--display);
-  font-size:1.4rem;
-  font-weight:500;
-  letter-spacing:.005em;
-  white-space:nowrap;
-  line-height:1;
-  /* optische correctie: Newsreader-glyphs hangen iets boven het midden */
-  transform:translateY(.04em);
-}
-@media (max-width:359px){
-  .masthead .brand-mark{ width:2.4rem; }
-  .masthead .brand-name{ font-size:1.1rem; }
-}
+.brand-logo{ display:block; width:7.25rem; height:auto; flex-shrink:0; }
+.brand-logo.big{ width:13rem; }
+/* crème balk: donkerder goud, anders te weinig contrast */
+.masthead.vast .brand-logo{ filter:brightness(.55) saturate(1.1); }
+.masthead.vast[data-tone="forest"] .brand-logo,
+.masthead.vast[data-tone="moss"] .brand-logo{ filter:none; }
 .masthead-nav{
   margin-left:auto;
   display:flex; gap:.6rem;
@@ -887,12 +868,6 @@ img.brand-mark.big{ width:4.5rem; }
   .footer-inner{ grid-template-columns:1.2fr 2fr; align-items:start; }
 }
 .footer-mark{ display:flex; flex-direction:column; gap:.6rem; }
-.footer-name{
-  font-family:var(--display);
-  font-size:1.4rem;
-  font-weight:400;
-  margin:.2rem 0 0;
-}
 .footer-tag{
   font-family:var(--display);
   font-style:italic;
