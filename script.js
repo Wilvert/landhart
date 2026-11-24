@@ -112,11 +112,11 @@
         return r.json().then(function(j){
           if (!r.ok || String(j.success) !== 'true') throw new Error(j.message);
           cf.reset();
-          ok.textContent = 'Bedankt, uw bericht is verstuurd. Wij nemen contact met u op.';
+          ok.textContent = 'Bedankt, uw bericht is verstuurd. Ik neem contact met u op.';
           ok.hidden = false;
         });
       }).catch(function(){
-        err.textContent = 'Wij konden niet bevestigen dat uw bericht is verstuurd. Bel 06 33 01 20 35 of mail naar info@landhart.nl. Uw tekst staat er nog.';
+        err.textContent = 'Uw bericht is mogelijk niet verstuurd. Bel 06 33 01 20 35 of mail naar info@landhart.nl. Uw tekst staat er nog.';
         err.hidden = false;
       }).then(function(){
         clearTimeout(klok);
