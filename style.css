@@ -103,6 +103,12 @@ a{ color:inherit; }
   content:""; position:absolute; z-index:-1; inset:-2.2rem -3.5rem; pointer-events:none;
   background:radial-gradient(closest-side, rgba(10,15,10,.62), rgba(10,15,10,.4) 50%, rgba(10,15,10,0));
 }
+@media (max-width:720px){
+  .masthead:not(.vast) .brand::before{
+    inset:-.7rem -1.1rem;
+    background:radial-gradient(closest-side, rgba(10,15,10,.5), rgba(10,15,10,.3) 55%, rgba(10,15,10,0));
+  }
+}
 .masthead:not(.vast) .brand-mark{ filter:drop-shadow(0 1px 3px rgba(0,0,0,.65)); }
 .masthead:not(.vast) .brand-name{ text-shadow:0 1px 8px rgba(0,0,0,.7); }
 .brand-name{ font-size:1.15rem; font-weight:500; white-space:nowrap; line-height:1; }
