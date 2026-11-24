@@ -2,6 +2,5 @@
 # (zoekindexering + citaties in AI-antwoorden gewenst)
 User-agent: *
 Allow: /
-Disallow: /preview-logos/
 
 Sitemap: https://landhart.nl/sitemap.xml

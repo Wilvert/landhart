@@ -44,12 +44,12 @@
       var bericht = cf.bericht.value.trim();
 
       var errs = [];
-      if (!naam) errs.push('Vul je naam in.');
-      if (!email && !tel) errs.push('Vul minimaal je e-mailadres &oacute;f telefoonnummer in.');
+      if (!naam) errs.push('Vul uw naam in.');
+      if (!email && !tel) errs.push('Vul minimaal uw e-mailadres óf telefoonnummer in.');
       if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errs.push('Het e-mailadres lijkt niet geldig.');
       if (!bericht) errs.push('Schrijf even een bericht.');
       if (errs.length) {
-        err.innerHTML = errs.join(' ');
+        err.textContent = errs.join(' ');
         err.hidden = false;
         return;
       }

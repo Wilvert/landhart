@@ -29,10 +29,7 @@
 <meta name="twitter:image:alt" content="Tuin door Landhart Tuinen — beplanting, terras en gazon in volle bloei">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,300;1,6..72,400;1,6..72,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css">
 
 <script type="application/ld+json">
@@ -40,12 +37,12 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["LocalBusiness","ProfessionalService"],
+      "@type": "HomeAndConstructionBusiness",
       "@id": "https://landhart.nl/#business",
       "name": "Landhart Tuinen",
       "alternateName": "Landhart",
       "url": "https://landhart.nl/",
-      "logo": "https://landhart.nl/favicon.svg",
+      "logo": "https://landhart.nl/brand/landhart-logo-groen-512.png",
       "image": "https://landhart.nl/images/tuin-landhart-hovenier-achterveld-1600.jpg",
       "description": "Landhart Tuinen pakt uw tuin op als één compleet project — van tuinontwerp en tuinaanleg tot beplanting, renovatie en jaarlijks tuinonderhoud. Eén hovenier voor het hele traject, volledig ontzorgd, werkzaam in Utrecht en Gelderland.",
       "slogan": "Ontwerpen, aanleggen, onderhouden — uit één hand.",
@@ -61,8 +58,8 @@
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 52.1389,
-        "longitude": 5.4631
+        "latitude": 52.1358,
+        "longitude": 5.4929
       },
       "telephone": "+31633012035",
       "email": "info@landhart.nl",
@@ -81,7 +78,7 @@
       ],
       "serviceArea": {
         "@type": "GeoCircle",
-        "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 52.1389, "longitude": 5.4631 },
+        "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 52.1358, "longitude": 5.4929 },
         "geoRadius": "60000"
       },
       "openingHoursSpecification": {
@@ -128,7 +125,7 @@
           "name": "In welke regio werkt hovenier Landhart?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Landhart is gevestigd in Achterveld en werkt in heel Utrecht en Gelderland — onder andere Amersfoort, Leusden, Barneveld, Stoutenburg en de wijdere Gelderse Vallei. Twijfel je of jouw plaats binnen het werkgebied valt? Bel even, dan kijken we mee."
+            "text": "Landhart is gevestigd in Achterveld en werkt in heel Utrecht en Gelderland — onder andere Amersfoort, Leusden, Barneveld, Stoutenburg en de wijdere Gelderse Vallei. Twijfelt u of uw plaats binnen het werkgebied valt? Bel even, dan kijken we mee."
           }
         },
         {
@@ -152,7 +149,7 @@
           "name": "Hoe verloopt een tuinaanleg of tuinrenovatie bij Landhart?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Eerst luisteren we — wat wil je met de tuin, hoe gebruik je 'm, wat is de grond. Daarna volgt schets, ontwerp en beplantingsplan. Vervolgens de aanleg of renovatie, en als je wilt het jaarlijks onderhoud. Eén aanspreekpunt voor het hele project, van eerste idee tot oplevering."
+            "text": "Eerst luisteren we — wat wilt u met de tuin, hoe gebruikt u hem, wat is de grond. Daarna volgt schets, ontwerp en beplantingsplan. Vervolgens de aanleg of renovatie, en als u wilt het jaarlijks onderhoud. Eén aanspreekpunt voor het hele project, van eerste idee tot oplevering."
           }
         },
         {
@@ -170,6 +167,8 @@
 </script>
 </head>
 <body>
+
+<a class="skiplink" href="#inhoud">Naar de inhoud</a>
 
 <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
 
@@ -197,7 +196,7 @@
   </a>
 </header>
 
-<main>
+<main id="inhoud" tabindex="-1">
 
 <!-- HOOFDSTUK I — HERO -->
 <section class="chapter chapter-hero" id="top" data-chapter="Welkom" data-tone="forest">
@@ -450,7 +449,7 @@
       <details class="faq-item">
         <summary><h3>In welke regio werkt hovenier Landhart?</h3></summary>
         <div class="faq-answer">
-          <p>Landhart is gevestigd in Achterveld en werkt in heel Utrecht en Gelderland — onder andere Amersfoort, Leusden, Barneveld, Stoutenburg en de wijdere Gelderse Vallei. Twijfel je of jouw plaats binnen het werkgebied valt? Bel even, dan kijken we mee.</p>
+          <p>Landhart is gevestigd in Achterveld en werkt in heel Utrecht en Gelderland — onder andere Amersfoort, Leusden, Barneveld, Stoutenburg en de wijdere Gelderse Vallei. Twijfelt u of uw plaats binnen het werkgebied valt? Bel even, dan kijken we mee.</p>
         </div>
       </details>
 
@@ -471,14 +470,14 @@
       <details class="faq-item">
         <summary><h3>Hoe verloopt een tuinaanleg of tuinrenovatie bij Landhart?</h3></summary>
         <div class="faq-answer">
-          <p>Eerst luisteren we — wat wil je met de tuin, hoe gebruik je 'm, wat is de grond. Daarna volgt schets, ontwerp en beplantingsplan. Vervolgens de aanleg of renovatie, en als je wilt het jaarlijks onderhoud. Eén aanspreekpunt voor het hele project, van eerste idee tot oplevering.</p>
+          <p>Eerst luisteren we — wat wilt u met de tuin, hoe gebruikt u hem, wat is de grond. Daarna volgt schets, ontwerp en beplantingsplan. Vervolgens de aanleg of renovatie, en als u wilt het jaarlijks onderhoud. Eén aanspreekpunt voor het hele project, van eerste idee tot oplevering.</p>
         </div>
       </details>
 
       <details class="faq-item">
         <summary><h3>Hoe vraag ik een offerte of kennismaking aan?</h3></summary>
         <div class="faq-answer">
-          <p>Bel <a href="tel:+31633012035">06 33 01 20 35</a>, mail naar <a href="mailto:info@landhart.nl">info@landhart.nl</a>, of vul het contactformulier hieronder in. We luisteren eerst, tekenen daarna. Een kennismaking en offerte zijn altijd vrijblijvend.</p>
+          <p>Bel <a href="tel:+31633012035">06 33 01 20 35</a>, mail naar <!--email_off--><a href="mailto:info@landhart.nl">info@landhart.nl</a><!--/email_off-->, of vul het contactformulier hieronder in. We luisteren eerst, tekenen daarna. Een kennismaking en offerte zijn altijd vrijblijvend.</p>
         </div>
       </details>
     </div>
@@ -488,13 +487,8 @@
 <!-- CONTACT -->
 <section class="chapter chapter-contact" id="contact" data-chapter="Contact" data-tone="cream">
   <picture class="chapter-bg subtle">
-    <img
-      src="https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?auto=format&fit=crop&w=1600&q=85"
-      srcset="https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?auto=format&fit=crop&w=900&q=85 900w,
-              https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?auto=format&fit=crop&w=1600&q=85 1600w"
-      sizes="100vw"
-      alt="Hand die een jong plantje uit de aarde tilt"
-      loading="lazy">
+    <source type="image/webp" srcset="/images/tuin-landhart-hovenier-achterveld-900.webp 900w, /images/tuin-landhart-hovenier-achterveld-1600.webp 1600w" sizes="100vw">
+    <img src="/images/tuin-landhart-hovenier-achterveld-1280.jpg" width="1280" height="825" alt="" loading="lazy" decoding="async">
   </picture>
 
   <div class="chapter-inner contact-inner">
@@ -502,7 +496,7 @@
       <p class="kicker">Contact</p>
       <h2 class="chapter-title">En nu, een gesprek.</h2>
       <p class="chapter-lede">
-        Bel, mail of laat hieronder kort weten waar we je mee kunnen helpen.
+        Bel, mail of laat hieronder kort weten waar we u mee kunnen helpen.
         We luisteren eerst, tekenen daarna.
       </p>
     </header>
@@ -516,7 +510,7 @@
           </div>
           <div>
             <dt>E-mail</dt>
-            <dd><a href="mailto:info@landhart.nl">info@landhart.nl</a></dd>
+            <dd><!--email_off--><a href="mailto:info@landhart.nl">info@landhart.nl</a><!--/email_off--></dd>
           </div>
           <div>
             <dt>Openingstijden</dt>
@@ -542,15 +536,15 @@
             <input type="tel" id="cf-tel" name="telefoon" autocomplete="tel" inputmode="tel" maxlength="40">
           </div>
         </div>
-        <p class="form-hint">Vul minimaal &eacute;&eacute;n van beide in zodat we je kunnen bereiken.</p>
+        <p class="form-hint">Vul minimaal &eacute;&eacute;n van beide in zodat we u kunnen bereiken.</p>
         <div class="form-row">
           <label for="cf-bericht">Bericht <span class="req" aria-hidden="true">*</span></label>
           <textarea id="cf-bericht" name="bericht" rows="5" required maxlength="2000"
-            placeholder="Laat ons weten waar we je mee kunnen helpen &mdash; onderhoud, advies, ontwerp, aanleg, of iets anders."></textarea>
+            placeholder="Laat ons weten waar we u mee kunnen helpen &mdash; onderhoud, advies, ontwerp, aanleg, of iets anders."></textarea>
         </div>
         <div class="form-error" id="formError" role="alert" hidden></div>
         <button type="submit" class="btn btn-gold">Verstuur bericht</button>
-        <p class="form-fine">Door te verzenden opent je e-mailprogramma met het bericht klaar om te versturen.</p>
+        <p class="form-fine">Na verzenden opent uw e-mailprogramma met het bericht klaar om te versturen. Lees onze <a href="/privacy/">privacyverklaring</a>.</p>
       </form>
     </div>
   </div>
@@ -571,15 +565,15 @@
     </div>
     <div class="footer-cols">
       <div>
-        <h4>Adres</h4>
+        <h2>Adres</h2>
         <p>Hessenweg 184<br>3791 PN Achterveld</p>
       </div>
       <div>
-        <h4>Contact</h4>
-        <p><a href="tel:+31633012035">06 33 01 20 35</a><br><a href="mailto:info@landhart.nl">info@landhart.nl</a></p>
+        <h2>Contact</h2>
+        <p><a href="tel:+31633012035">06 33 01 20 35</a><br><!--email_off--><a href="mailto:info@landhart.nl">info@landhart.nl</a><!--/email_off--></p>
       </div>
       <div>
-        <h4>Op deze pagina</h4>
+        <h2>Op deze pagina</h2>
         <p>
           <a href="#diensten">Diensten</a><br>
           <a href="#over-ons">Over ons</a><br>
@@ -589,7 +583,7 @@
         </p>
       </div>
     </div>
-    <p class="footer-fine">&copy; <span id="yr"></span> Landhart. Alle rechten voorbehouden.</p>
+    <p class="footer-fine">&copy; <span id="yr">2026</span> Landhart. Alle rechten voorbehouden. &middot; <a href="/privacy/">Privacyverklaring</a></p>
   </div>
 </footer>
 

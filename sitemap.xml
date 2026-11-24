@@ -3,9 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://landhart.nl/</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-11-24</lastmod>
     <image:image>
       <image:loc>https://landhart.nl/images/tuin-landhart-hovenier-achterveld-1600.jpg</image:loc>
       <image:title>Tuin door Landhart Tuinen — volwassen beplanting</image:title>
@@ -26,5 +24,9 @@
       <image:loc>https://landhart.nl/images/tuin-leusden-02-960.jpg</image:loc>
       <image:title>Tuinproject Landhart in Leusden</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://landhart.nl/privacy/</loc>
+    <lastmod>2026-11-24</lastmod>
   </url>
 </urlset>

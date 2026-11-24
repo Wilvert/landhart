@@ -5,7 +5,7 @@ Statische website voor hoveniersbedrijf Landhart. Gehost op Cloudflare Pages, br
 ## Lokaal bekijken
 
 ```sh
-python3 -m http.server 8000
+./bouw.sh && python3 -m http.server 8000 -d dist
 # open http://localhost:8000
 ```
 
@@ -13,31 +13,27 @@ python3 -m http.server 8000
 
 Push naar `main` triggert de workflow in `.github/workflows/deploy.yml`, die de site naar Cloudflare Pages-project `landhart` deployt.
 
-## Afbeeldingen
+## Bouwen
 
-Project- en filosofie-foto's komen via Unsplash CDN (zie `<img src="https://images.unsplash.com/...">` in `index.html`). Bij eigen foto's: zet ze in `/images/` en vervang de `src` + `srcset` URL's. Bewaar `aspect-ratio` 4/5 voor projecten, 3/4 voor de filosofie-foto.
+`./bouw.sh` zet de bestanden die online horen in `dist/` en verkleint de CSS. Alleen `dist/` wordt uitgerold; voeg een nieuwe map of pagina dus ook daar toe.
 
-## Design notes
+## Design
 
-- **Type**: Fraunces (display, italic accents) + DM Sans (body) — geladen via Google Fonts
-- **Kleuren**: deep ink-green (`--ink: #0F1F11`) op cream (`--cream: #F4EEE0`), met chartreuse accent (`--accent: #C9F226`)
-- **Filmgrain**: subtiele SVG noise-overlay via `body::before`
-- **Reveal-animaties**: IntersectionObserver met `.reveal` class en `--d` delay variabele
-- **Marquee**: continue horizontale scroll (CSS animation), gepauzeerd op `prefers-reduced-motion`
-- **Projecten**: horizontale scroll-track met snap, wheel→horizontaal-conversie via JS
+Newsreader (koppen) en Inter (tekst), zelf gehost in `fonts/`. Kleuren staan bovenaan `style.css`. Geen externe diensten; de CSP in `_headers` staat die ook niet toe.
 
 ## Nog optioneel later
 
-- Eigen project-foto's i.p.v. Unsplash placeholders
 - Google Business Profile claimen (google.com/business) — grootste lokale SEO-hefboom
-- KvK-nummer (als gewenst — momenteel bewust weggelaten)
+- KvK- en btw-nummer toevoegen
 
 ## Structuur
 
 ```
 index.html                       hoofdpagina (HTML + minimale vanilla JS)
 style.css                        styling (vanilla CSS, geen frameworks)
-favicon.svg                      icon (sprout in chartreuse)
+favicon.svg                      icon
+privacy/                         privacyverklaring
+fonts/, images/, brand/          lettertypen, foto's, logo's
 robots.txt                       SEO crawl-regels
 sitemap.xml                      SEO sitemap
 .github/workflows/deploy.yml     auto-deploy naar Cloudflare Pages

@@ -4,6 +4,10 @@
    Palette: cream #F4EEE0 · forest #1A2417 · moss #2F4A33 · gold #B8945F
    ============================================================ */
 
+@font-face{ font-family:"Inter"; font-style:normal; font-weight:400 600; font-display:swap; src:url(/fonts/inter-latin.woff2) format("woff2"); }
+@font-face{ font-family:"Newsreader"; font-style:normal; font-weight:300 500; font-display:swap; src:url(/fonts/newsreader-latin.woff2) format("woff2"); }
+@font-face{ font-family:"Newsreader"; font-style:italic; font-weight:300 400; font-display:swap; src:url(/fonts/newsreader-italic-latin.woff2) format("woff2"); }
+
 :root{
   --cream:#F4EEE0;
   --cream-2:#EAE2CE;
@@ -13,6 +17,7 @@
   --moss-2:#243A28;
   --gold:#B8945F;
   --gold-2:#A07F4A;
+  --gold-ink:#76582B;   /* goud als tekst op crème, voldoende contrast */
   --ink:#1A2417;
   --ink-soft:#3A4338;
 
@@ -423,7 +428,7 @@ a{ color:inherit; }
 
 .service-num{
   font-family:var(--display); font-style:italic;
-  font-size:.95rem; color:var(--gold);
+  font-size:.95rem; color:var(--gold-ink);
   display:inline-block; margin-bottom:1.4rem;
   letter-spacing:.06em;
 }
@@ -482,7 +487,6 @@ a{ color:inherit; }
   background:var(--moss);
   color:var(--cream);
 }
-.chapter-projects .chapter-title,
 .chapter-projects{
   display:block;            /* override .chapter flex */
   min-height:auto;          /* override 100vh */
@@ -614,7 +618,7 @@ a{ color:inherit; }
   font-weight:400 !important;
   font-size:clamp(1.25rem, 2vw, 1.6rem) !important;
   line-height:1.4 !important;
-  color:var(--gold) !important;
+  color:var(--gold-ink) !important;
   border-left:2px solid var(--gold);
   padding-left:1.2rem;
   margin-top:.6rem !important;
@@ -684,7 +688,7 @@ a{ color:inherit; }
   transition:transform .25s var(--ease);
 }
 .faq-item[open] summary::after{ transform:rotate(225deg) translateY(0); }
-.faq-item summary:hover h3{ color:var(--gold-2); }
+.faq-item summary:hover h3{ color:var(--gold-ink); }
 .faq-answer{
   padding:0 0 1.5rem;
   max-width:62ch;
@@ -695,7 +699,7 @@ a{ color:inherit; }
   color:var(--ink-soft);
   margin:0;
 }
-.faq-answer a{ color:var(--gold-2); text-underline-offset:.18em; }
+.faq-answer a{ color:var(--gold-ink); text-underline-offset:.18em; }
 
 /* ---------- HOOFDSTUK IV — CONTACT ---------- */
 .chapter-contact{
@@ -706,7 +710,7 @@ a{ color:inherit; }
 .chapter-contact .chapter-bg::after{
   content:"";
   position:absolute; inset:0;
-  background:linear-gradient(180deg, rgba(244,238,224,.55), rgba(244,238,224,.92));
+  background:linear-gradient(180deg, rgba(244,238,224,.82), rgba(244,238,224,.94));
 }
 .contact-inner{ max-width:1180px; }
 
@@ -794,7 +798,7 @@ a{ color:inherit; }
   font-weight:500;
   color:var(--ink-soft);
 }
-.contact-form .req{ color:var(--gold); margin-left:2px; }
+.contact-form .req{ color:var(--gold-ink); margin-left:2px; }
 
 .contact-form input,
 .contact-form textarea{
@@ -887,7 +891,7 @@ a{ color:inherit; }
   grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
   gap:2rem;
 }
-.footer-cols h4{
+.footer-cols h2{
   font-family:var(--body);
   font-size:.72rem;
   letter-spacing:.22em;
@@ -916,7 +920,7 @@ a{ color:inherit; }
   font-family:var(--body);
   font-size:.78rem;
   letter-spacing:.06em;
-  opacity:.55;
+  opacity:.75;
   margin:2.5rem 0 0;
   padding-top:1.5rem;
   border-top:1px solid rgba(244,238,224,.12);
@@ -924,3 +928,22 @@ a{ color:inherit; }
 
 /* ---------- Selection ---------- */
 ::selection{ background:var(--gold); color:var(--forest); }
+
+/* ---------- Skiplink ---------- */
+.skiplink{ position:fixed; top:.5rem; left:.5rem; z-index:100; padding:.7rem 1.1rem; background:var(--forest); color:var(--cream); border-radius:8px; transform:translateY(-200%); }
+.skiplink:focus{ transform:none; }
+main:focus{ outline:0; }
+
+/* ---------- Tekstpagina (privacy) ---------- */
+.tekst{ max-width:720px; margin:0 auto; padding:8rem var(--rail) 5rem; }
+.tekst h1{ font-family:var(--display); font-weight:400; font-size:clamp(2.2rem, 5vw, 3.4rem); line-height:1.08; margin:0 0 1.5rem; }
+.tekst h2{ font-family:var(--display); font-weight:500; font-size:1.45rem; line-height:1.25; margin:2.4rem 0 .6rem; }
+.tekst p,.tekst li{ color:var(--ink-soft); }
+.tekst a{ color:var(--gold-ink); text-underline-offset:.18em; }
+
+/* ---------- 404 ---------- */
+.niet-gevonden{ min-height:100svh; display:flex; align-items:center; justify-content:center; padding:2rem 1.5rem; background:var(--forest); color:var(--cream); text-align:center; }
+.niet-gevonden .wrap{ max-width:30rem; }
+.niet-gevonden .mark{ width:48px; height:48px; color:var(--gold); margin-bottom:1.5rem; }
+.niet-gevonden .code{ font-size:.78rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); }
+.niet-gevonden h1{ font-family:var(--display); font-weight:500; font-size:clamp(1.7rem,5vw,2.4rem); line-height:1.2; }
