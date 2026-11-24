@@ -104,7 +104,7 @@ a{ color:inherit; }
 .masthead.vast[data-tone="forest"] .brand-logo,
 .masthead.vast[data-tone="moss"] .brand-logo{ filter:none; }
 @media (max-width:720px){
-  .masthead:not(.vast) .brand-logo{ width:6rem; }
+  .masthead:not(.vast) .brand-logo{ width:5.75rem; }
   .masthead .brand-logo{ width:5rem; }
   .brand-logo.big{ width:9rem; }
 }
