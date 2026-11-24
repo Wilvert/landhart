@@ -30,6 +30,27 @@
     chapters.forEach(function(c){ io.observe(c); });
   }
 
+  // Diensten zijwaarts schuiven
+  var rij = document.getElementById('dienstenRij');
+  if (rij) {
+    var knoppen = document.querySelectorAll('.schuif');
+    var werkBij = function(){
+      var ruimte = rij.scrollWidth - rij.clientWidth;
+      knoppen[0].parentNode.hidden = ruimte < 5;
+      knoppen[0].disabled = rij.scrollLeft < 5;
+      knoppen[1].disabled = rij.scrollLeft > ruimte - 5;
+    };
+    knoppen.forEach(function(k){
+      k.addEventListener('click', function(){
+        var stap = rij.firstElementChild.offsetWidth + 20;
+        rij.scrollBy({ left: Number(k.dataset.schuif) * stap * 2, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      });
+    });
+    rij.addEventListener('scroll', werkBij, {passive:true});
+    window.addEventListener('resize', werkBij);
+    werkBij();
+  }
+
   // Year
   var y = document.getElementById('yr');
   if (y) y.textContent = new Date().getFullYear();

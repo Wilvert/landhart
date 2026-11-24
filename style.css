@@ -340,29 +340,32 @@ a{ color:inherit; }
 .btn-ghost:hover{ background:rgba(244,238,224,.1); opacity:1; }
 .btn-large{ padding:1.1rem 2rem; font-size:1rem; }
 
-/* ---------- WAT WIJ DOEN ---------- */
-.chapter.chapter-services{ background:#F7F5EF; min-height:0; padding:clamp(4rem, 8vw, 7rem) var(--rail); scroll-margin-top:3rem; }
-.wat-kop{ display:grid; gap:2rem; margin-bottom:clamp(2rem, 4vw, 3.2rem); }
-.wat-label{ font-weight:500; font-size:.95rem; margin:0 0 1rem; }
-.wat-label::before{ content:"/"; color:var(--gold-ink); margin-right:.6rem; }
-.wat-titel{ font-family:var(--body); font-weight:500; font-size:clamp(1.6rem, 3vw, 2.5rem); line-height:1.16; letter-spacing:-.025em; margin:0 0 2rem; color:var(--ink); text-wrap:pretty; }
-.wat-titel span{ color:#6F7469; }
-.feiten{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:.9rem 1.5rem; align-content:start; font-weight:500; font-size:.95rem; line-height:1.4; }
-@media (min-width:900px){ .wat-kop{ grid-template-columns:1fr 1fr; gap:clamp(2rem, 5vw, 5rem); } .feiten{ padding-top:2.6rem; } }
-.pijlknop{ display:inline-flex; align-items:center; text-decoration:none; font-weight:500; font-size:.95rem; }
-.pijlknop-tekst{ border:1px solid var(--ink); border-radius:999px; padding:.7rem 1.6rem; }
-.pijlknop-rond{ width:3rem; height:3rem; display:grid; place-items:center; border-radius:50%; background:var(--ink); color:var(--cream); transition:background .25s var(--ease), color .25s var(--ease); }
-.pijlknop:hover .pijlknop-rond{ background:var(--gold); color:#1A1207; }
-.diensten{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,1fr); gap:2.4rem 1.5rem; }
-.dienst-beeld{ aspect-ratio:4/3; display:grid; place-items:center; background:#E4E0D3; color:#666A5D; font-size:.85rem; margin-bottom:.7rem; }
-.dienst-nr{ font-size:.85rem; color:#6F7469; }
-.dienst h3{ font-family:var(--body); font-weight:500; font-size:1.2rem; letter-spacing:-.015em; line-height:1.3; margin:.1rem 0 .3rem; }
-.dienst p{ margin:0; font-size:.95rem; line-height:1.5; color:var(--ink-soft); }
+/* ---------- DIENSTEN: één rij, zijwaarts te schuiven ---------- */
+.chapter.chapter-services{ background:#F7F5EF; min-height:0; padding:clamp(3.5rem, 6vw, 5rem) var(--rail); scroll-margin-top:3rem; }
+.diensten-kop{ display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1.6rem; }
+.diensten-titel{ font-family:var(--display); font-weight:400; font-size:clamp(2rem, 3.6vw, 3rem); line-height:1.1; letter-spacing:-.015em; margin:0; }
+.schuiven{ display:flex; gap:.5rem; }
+.schuiven[hidden]{ display:none; }
+.schuif{ width:2.9rem; height:2.9rem; display:grid; place-items:center; border:1px solid var(--ink); border-radius:50%; background:none; color:var(--ink); cursor:pointer; transition:background .25s var(--ease), color .25s var(--ease); }
+.schuif:hover:not(:disabled){ background:var(--ink); color:var(--cream); }
+.schuif:disabled{ opacity:.3; cursor:default; }
+.diensten{
+  --kant:max(var(--rail), (100vw - 1180px) / 2);
+  list-style:none; padding:0 var(--kant); margin:0 calc(50% - 50vw);
+  display:grid; grid-auto-flow:column; grid-auto-columns:clamp(250px, 21vw, 300px); gap:1.25rem;
+  overflow-x:auto; scroll-snap-type:x proximity; scroll-padding-inline:var(--kant);
+  scrollbar-width:none;
+}
+.diensten::-webkit-scrollbar{ display:none; }
+.diensten:focus-visible{ outline:2px solid var(--gold); outline-offset:6px; }
+.dienst{ scroll-snap-align:start; }
+.dienst-beeld{ aspect-ratio:1; display:grid; place-items:center; background:#E4E0D3; color:#666A5D; font-size:.85rem; margin-bottom:.7rem; }
+.dienst-nr{ font-family:var(--display); font-size:.95rem; color:#6F7469; }
+.dienst h3{ font-family:var(--display); font-weight:400; font-size:1.4rem; letter-spacing:-.01em; line-height:1.25; margin:.1rem 0 .3rem; }
+.dienst p{ font-family:var(--display); margin:0; font-size:1.02rem; line-height:1.45; color:var(--ink-soft); }
 @media (max-width:760px){
-  .diensten{ grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:76%; gap:1rem; overflow-x:auto; scroll-snap-type:x mandatory; scroll-padding-left:var(--rail); margin-inline:calc(var(--rail) * -1); padding-inline:var(--rail); scrollbar-width:none; }
-  .diensten::-webkit-scrollbar{ display:none; }
-  .dienst{ scroll-snap-align:start; }
-  .dienst-beeld{ aspect-ratio:6/7; }
+  .diensten{ grid-auto-columns:72%; gap:1rem; }
+  .schuiven{ display:none; }
 }
 
 /* ---------- INTERLUDE — PLATE ---------- */
