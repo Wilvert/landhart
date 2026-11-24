@@ -12,4 +12,4 @@ Website: https://landhart.nl/
 Werkgebied: Utrecht en Gelderland — Achterveld, Amersfoort, Leusden, Barneveld, Stoutenburg
 Diensten: tuinontwerp, tuinaanleg, tuinrenovatie, tuinonderhoud, beplantingsplan, projectbegeleiding
 Standards: HTML5, CSS, progressieve verbetering, schema.org JSON-LD
-Hosting: Cloudflare Pages
+Hosting: GitHub Pages

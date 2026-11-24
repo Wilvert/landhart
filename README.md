@@ -1,6 +1,6 @@
 # landhart.nl
 
-Statische website voor hoveniersbedrijf Landhart. Gehost op Cloudflare Pages, broncode op GitHub. Deploy gaat automatisch bij elke push naar `main` via GitHub Actions.
+Statische website voor hoveniersbedrijf Landhart. Gehost op GitHub Pages, achter Cloudflare (DNS en beveiligingsheaders), broncode op GitHub. Deploy gaat automatisch bij elke push naar `main` via GitHub Actions.
 
 ## Lokaal bekijken
 
@@ -11,7 +11,7 @@ Statische website voor hoveniersbedrijf Landhart. Gehost op Cloudflare Pages, br
 
 ## Deploy
 
-Push naar `main` triggert de workflow in `.github/workflows/deploy.yml`, die de site naar Cloudflare Pages-project `landhart` deployt.
+Push naar `main` triggert de workflow in `.github/workflows/deploy.yml`, die `dist/` naar GitHub Pages uitrolt.
 
 ## Bouwen
 
@@ -19,7 +19,7 @@ Push naar `main` triggert de workflow in `.github/workflows/deploy.yml`, die de 
 
 ## Design
 
-Newsreader (koppen) en Inter (tekst), zelf gehost in `fonts/`. Kleuren staan bovenaan `style.css`. Geen externe diensten; de CSP in `_headers` staat die ook niet toe.
+Newsreader (koppen) en Inter (tekst), zelf gehost in `fonts/`. Kleuren staan bovenaan `style.css`. Geen externe diensten; de CSP (headerregel in Cloudflare) staat die straks ook niet toe.
 
 ## Nog optioneel later
 
@@ -36,5 +36,5 @@ privacy/                         privacyverklaring
 fonts/, images/, brand/          lettertypen, foto's, logo's
 robots.txt                       SEO crawl-regels
 sitemap.xml                      SEO sitemap
-.github/workflows/deploy.yml     auto-deploy naar Cloudflare Pages
+.github/workflows/deploy.yml     auto-deploy naar GitHub Pages
 ```

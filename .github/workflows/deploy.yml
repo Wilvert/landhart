@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Pages
+name: Uitrollen naar GitHub Pages
 
 on:
   push:
@@ -7,29 +7,45 @@ on:
 
 permissions:
   contents: read
-  deployments: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
       - name: Bouwen
         run: ./bouw.sh
 
-      - name: Deploy
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=landhart --branch=main --commit-dirty=true
+      # Zelf inpakken: upload-pages-artifact kan verborgen mappen (.well-known) overslaan.
+      - name: Inpakken
+        run: tar --dereference --hard-dereference -cf "$RUNNER_TEMP/artifact.tar" -C dist .
 
-      # Meldt de wijziging direct aan Bing/Yandex/ChatGPT-index via IndexNow.
-      # De sleutel is niet geheim — hij staat publiek op /<key>.txt (IndexNow-design).
-      - name: Ping IndexNow
+      - uses: actions/upload-artifact@v4
+        with:
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
+
+      - name: Uitrollen
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      # Meldt wijzigingen via IndexNow. De sleutel is bewust openbaar.
+      - name: IndexNow
+        continue-on-error: true
         run: |
-          sleep 10  # even wachten tot de productie-URL de nieuwe deploy serveert
+          sleep 10
           curl -sS -X POST "https://api.indexnow.org/indexnow" \
             -H "Content-Type: application/json; charset=utf-8" \
             --data '{"host":"landhart.nl","key":"c75216060ea926e5bd09951197c99940","keyLocation":"https://landhart.nl/c75216060ea926e5bd09951197c99940.txt","urlList":["https://landhart.nl/","https://landhart.nl/privacy/"]}' \
