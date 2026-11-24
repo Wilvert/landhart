@@ -194,27 +194,6 @@ a{ color:inherit; }
 }
 @media (max-width:720px){
   .chapter{ min-height:auto; padding:7rem var(--rail) 4rem; }
-  /* hero blijft schermvullend op telefoon. Kicker+titel zitten als
-     groep bovenaan (iets verlaagd onder de masthead); lede+CTA's
-     zitten als groep onderaan (iets verhoogd boven de bodem). Het
-     auto-gat zit tussen TITEL en LEDE — daar is de hero-foto zichtbaar. */
-  .chapter-hero{
-    min-height:100svh;
-    padding:8.5rem var(--rail) 5.5rem;
-    align-items:stretch;
-  }
-  .chapter-hero .hero-inner{
-    display:flex;
-    flex-direction:column;
-    align-self:stretch;
-  }
-  .chapter-hero .hero-lede{
-    margin-top:auto;          /* duwt lede+cta als blok naar beneden */
-    margin-bottom:1.5rem;     /* tight tegen de cta-knoppen */
-  }
-  .chapter-hero .hero-cta{
-    margin-top:0;             /* override: cta volgt direct op lede */
-  }
 }
 
 .chapter-inner{
@@ -261,13 +240,10 @@ a{ color:inherit; }
 .chapter-veil{
   position:absolute; inset:0; z-index:1;
   background:
-    linear-gradient(180deg, rgba(15,22,16,.5) 0%, rgba(15,22,16,0) 26%),
-    linear-gradient(90deg, rgba(15,22,16,.66) 0%, rgba(15,22,16,.45) 42%, rgba(15,22,16,.05) 78%);
+    linear-gradient(180deg, rgba(15,22,16,.5) 0%, rgba(15,22,16,0) 24%),
+    linear-gradient(0deg, rgba(15,22,16,.75) 0%, rgba(15,22,16,.5) 30%, rgba(15,22,16,0) 62%);
 }
-@media (max-width:720px){
-  .chapter-veil{ background:linear-gradient(180deg, rgba(15,22,16,.62) 0%, rgba(15,22,16,.38) 34%, rgba(15,22,16,.1) 46%, rgba(15,22,16,.62) 64%, rgba(15,22,16,.72) 100%); }
-}
-.hero-title,.hero-lede{ text-shadow:0 1px 18px rgba(15,22,16,.55); }
+.hero-title{ text-shadow:0 1px 18px rgba(15,22,16,.55); }
 .chapter-veil.light{
   background:linear-gradient(180deg, rgba(15,22,16,.35) 0%, rgba(15,22,16,.55) 100%);
 }
@@ -317,7 +293,14 @@ a{ color:inherit; }
 }
 
 /* ---------- HOOFDSTUK I — HERO ---------- */
-.chapter-hero{ color:var(--cream); }
+/* altijd precies één schermhoogte, kop en knoppen onderaan */
+.chapter.chapter-hero{
+  color:var(--cream);
+  height:100vh; height:100svh;
+  min-height:0;
+  align-items:flex-end;
+  padding:5rem var(--rail) clamp(1.5rem, 8vh, 5.5rem);
+}
 .hero-inner{ max-width:1100px; }
 .hero-title{
   font-family:var(--display);
@@ -327,15 +310,6 @@ a{ color:inherit; }
   letter-spacing:-.02em;
   margin:0 0 1.6rem;
   text-wrap:balance;
-}
-.hero-lede{
-  font-family:var(--display);
-  font-weight:300;
-  font-size:clamp(1.05rem, 1.55vw, 1.3rem);
-  line-height:1.6;
-  max-width:54ch;
-  margin:0 0 2rem;
-  opacity:.94;
 }
 .hero-cta{ display:flex; flex-wrap:wrap; gap:.85rem; }
 
