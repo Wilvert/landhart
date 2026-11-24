@@ -311,7 +311,7 @@ a{ color:inherit; }
   padding:5rem var(--rail) clamp(1.5rem, 8vh, 5.5rem);
 }
 .hero-inner{ max-width:1180px; }
-@media (min-width:1200px){ .hero-inner{ max-width:1580px; } }   /* gelijk met Diensten */
+@media (min-width:1200px){ .hero-inner{ max-width:1660px; } }   /* gelijk met Diensten */
 .hero-title{
   font-family:var(--display);
   font-weight:400;
@@ -367,8 +367,12 @@ a{ color:inherit; }
 .dienst p{ font-family:var(--display); margin:0; font-size:1.02rem; line-height:1.45; color:var(--ink-soft); }
 /* desktop: alle vijf naast elkaar, gecentreerd */
 @media (min-width:1200px){
-  .chapter-services .chapter-inner{ max-width:1580px; }
-  .diensten{ margin:0; padding:0; grid-auto-flow:row; grid-template-columns:repeat(5, minmax(0, 1fr)); overflow:visible; }
+  .chapter-services .chapter-inner{ max-width:1660px; }
+  .diensten{ margin:0; padding:0; grid-auto-flow:row; grid-template-columns:repeat(5, minmax(0, 1fr)); column-gap:clamp(1.75rem, 2.2vw, 2.5rem); overflow:visible; }
+  .dienst-beeld{ transition:transform .35s var(--ease), box-shadow .35s var(--ease), filter .35s var(--ease); }
+  @media (hover:hover){
+    .dienst:hover .dienst-beeld{ transform:scale(1.035); filter:brightness(1.07); box-shadow:0 18px 40px -18px rgba(15,22,16,.45); }
+  }
 }
 @media (max-width:760px){
   .diensten{ grid-auto-columns:72%; gap:1rem; }
