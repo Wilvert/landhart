@@ -24,7 +24,6 @@ Newsreader (koppen) en Inter (tekst), zelf gehost in `fonts/`. Kleuren staan bov
 ## Nog optioneel later
 
 - Google Business Profile claimen (google.com/business) — grootste lokale SEO-hefboom
-- btw-id toevoegen
 
 ## Structuur
 
