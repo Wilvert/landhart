@@ -97,6 +97,8 @@ a{ color:inherit; }
 }
 .brand-logo{ display:block; width:7.25rem; height:auto; flex-shrink:0; }
 .brand-logo.big{ width:13rem; }
+/* over de hero: groter en helderder */
+.masthead:not(.vast) .brand-logo{ width:9.5rem; filter:brightness(1.15) drop-shadow(0 1px 5px rgba(0,0,0,.45)); }
 /* crème balk: donkerder goud, anders te weinig contrast */
 .masthead.vast .brand-logo{ filter:brightness(.55) saturate(1.1); }
 .masthead.vast[data-tone="forest"] .brand-logo,
