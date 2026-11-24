@@ -98,6 +98,7 @@ a{ color:inherit; }
   color:var(--gold);      /* altijd goud — geen toggle met masthead-text */
   vertical-align:middle;
 }
+img.brand-mark{ width:3.1rem; }
 .brand-mark.big{ width:2.4em; color:var(--gold); }
 .brand-name{
   font-family:var(--display);
